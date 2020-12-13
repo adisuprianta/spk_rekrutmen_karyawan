@@ -26,7 +26,7 @@ class CreateTabelCalonKaryawan extends Migration
             $table->string('Pendidikan',20);
             $table->date('Tanggal_Lahir');
             $table->foreign('id_bagian')->references('id_bagian')->on('bagian')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreign('id_hrd')->references('id_hrd')->on('login_hrd')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('id_hrd')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
 
         });
     }

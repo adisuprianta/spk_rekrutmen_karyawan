@@ -20,17 +20,19 @@
                 </div>
                 <div class="col-5 form-login">
                     <h3>PT. SASMITA ABADI GLOVES</h3>
-                    <form>
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                        
                         <div class="form-group row">
                             <span><i class="fa fa-id-card"></i></span>
                             <div class="col-sm-10">
-                            <input type="email" class="form-control form-control-login" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Pengguna">
+                            <input type="email" class="form-control form-control-login" id="exampleInputEmail1" name="email" placeholder="Nama Pengguna">
                             </div>
                         </div>
                         <div class="form-group row">
                         <span><i class="fa fa-unlock-alt"></i></span>
                             <div class="col-sm-10">
-                            <input type="password" class="form-control form-control-login" id="inputPassword" placeholder="Kata Sandi">
+                            <input type="password" class="form-control form-control-login" id="inputPassword" name="password" placeholder="Kata Sandi">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Masuk</button>
