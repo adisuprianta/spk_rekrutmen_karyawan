@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
+.btn-primary {
+  background-color: white;
+  color: black;
+  border: white;
+}
+
+body {
+  background-color: #3F3D56;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+  margin-top: 1em;
+}
+
+.navbar .navbar-brand .image img {
+  height: 65px;
+  width: 65px;
+  border-radius: 100px;
+  float: left;
+}
+
+.navbar .navbar-brand .text-logo {
+  margin-left: 3.9em;
+  color: white;
+}
+
+.navbar .navbar-brand .text-logo h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 0.8em;
+}
+
+.navbar .navbar-brand .text-logo p {
+  font-size: 12px;
+  font-weight: 300;
+  margin-top: -10px;
+}
+
+.navbar .menu-item .nav-item a {
+  color: white;
+}
+
+.navbar .menu-item .nav-item .dropdown-item {
+  color: black;
+}
+
+.form-control-login {
+  border: none;
+  border-bottom: 1px #ffffff solid;
+  background: none;
+}
+
+.home {
+  margin-top: 3rem;
+}
+
+.home .content-home p {
+  color: white;
+  font-size: 16px;
+}
+
+.home .content-home .image {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.judul-grafik {
+  color: white;
+  font-size: 1.3em;
+  text-align: center;
+  margin-top: 2em;
+}
+
+.grafik {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.grafik #calon_karyawan {
+  background-color: white;
+}
+
+.content-kriteria {
+  margin-top: 3em;
+}
+
+.content-kriteria img {
+  margin: auto;
+  display: block;
+}
+
+.content-kriteria p {
+  color: white;
+  font-size: 15px;
+  text-align: justify;
+}
+
+.content-kriteria hr {
+  size: 10px;
+  color: #fff;
+}
+
+.content-kriteria .bagian {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.content-kriteria .bagian h4 {
+  font-size: 18px;
+  text-align: center;
+  color: white;
+  margin-top: 0.7em;
+  margin-bottom: 1em;
+}
+
+.content-kriteria .bagian .btn-primary {
+  font-size: 14px;
+  padding: 8px 7px;
+  margin-bottom: 1em;
+}
+
+.content-kriteria-produksi {
+  color: white;
+}
+
+.content-kriteria-produksi h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 0.6em;
+  margin-bottom: 1.5em;
+  font-weight: 700;
+}
+
+.content-kriteria-produksi .img-kriteria-produksi img {
+  display: block;
+  margin: auto;
+  margin-top: 2em;
+}
+
+.content-kriteria-produksi .kriteria-text h3 {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.content-kriteria-produksi .kriteria-text p {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.content-kriteria-produksi .kriteria-text ul {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.content-kriteria-produksi .kriteria-text ul li {
+  list-style: none;
+  margin-bottom: 0.3em;
+}
+
+.content-kriteria-produksi .form-produksi .produksi-label {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.content-kriteria-produksi .form-produksi .btn-primary {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 1.8em;
+}
+
+.content-kriteria-produksi .form-produksi .button .btn-primary {
+  background-color: white;
+  color: #000;
+  display: block;
+  margin: auto;
+  font-size: 14px;
+  padding: 7px 8px;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,64 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f6f7fb;
+}
+
+.container .row h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin-top: 2.8rem;
+  margin-bottom: 2rem;
+}
+
+.form-login-admin {
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#f6f7fb));
+  background: linear-gradient(180deg, white 0%, #f6f7fb 100%);
+  overflow: hidden;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  border-radius: 8px;
+  padding-left: 100px;
+}
+
+.form-login-admin .icon-login-header {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.form-login-admin .form-login {
+  padding: 3rem;
+  background-color: #3F3D56;
+  border-radius: 10px;
+  color: #f6f7fb;
+}
+
+.form-login-admin .form-login .form-group {
+  margin-left: 1.5rem;
+}
+
+.form-login-admin .form-login .fa-id-card {
+  margin-top: 5px;
+  font-size: 1.9em;
+}
+
+.form-login-admin .form-login .fa-unlock-alt {
+  margin-top: 5px;
+  font-size: 1.9em;
+  margin-right: 16px;
+}
+
+.form-login-admin .form-login h3 {
+  font-size: 18px !important;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.form-login-admin .btn-primary {
+  margin: auto;
+  display: block;
+  margin-top: 2.5rem;
+}
+/*# sourceMappingURL=login.css.map */
