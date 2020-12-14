@@ -3,7 +3,6 @@
     {{-- aditional style --}}
 @endpush
 
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -11,6 +10,7 @@
                 @include('templates.partials._navbar')
             </div>
         </div>
+        <!-- home -->
         <div class="row">
             <div class="col-md-12 content-kriteria">
                 <div class="row">
@@ -48,8 +48,17 @@
             </div>   
         </div>
     </div>
+        
+    </div>
+    
+    
+
 @endsection
 
-@push('script')
+
+@push('scripts')
     @include('templates.partials._scripts')
+    
 @endpush
+
+

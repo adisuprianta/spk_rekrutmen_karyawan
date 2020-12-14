@@ -101,6 +101,6 @@
     </div>
 @endsection
 
-@push('script')
+@push('scripts')
     @include('templates.partials._scripts')
 @endpush
