@@ -17,7 +17,7 @@ class CreateTabelKriteriaAhp extends Migration
             $table->char('id_kriteria',3)->primary();
             $table->char('id_bagian',3);
             $table->string('Nama_kriteria',20);
-            $table->decimal('bobot_kriteria', 4,4);
+            $table->decimal('bobot_kriteria', 18,4);
             $table->integer('Nilai_perbandingan_kriteria');
             $table->foreign('id_bagian')->references('id_bagian')->on('bagian')->onUpdate('cascade')->onDelete('restrict');
         });
