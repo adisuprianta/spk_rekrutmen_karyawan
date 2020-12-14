@@ -20,5 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('kriteria', "KriteriaController@index");
-Route::post('kriteria', "KriteriaController@panggil");
+Route::get('kriteria', "KriteriaController@index")->middleware('auth');
+Route::post('kriteria', "KriteriaController@panggil")->middleware('auth');
+
+Route::get('/home/produksi', "KaryawanController@produksi")->middleware('auth');
+Route::get('/home/nonproduksi', "KaryawanController@nonproduksi")->middleware('auth');
+// Route::post('/karyawan', "KaryawanController@panggil");
