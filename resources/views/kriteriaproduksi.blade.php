@@ -35,13 +35,14 @@
                             </div>
                         </div>
                         <div class="col-md-12 form-produksi">
-                            <form>
+                            <form method="POST" action="/kriteria/produksi/update">
+                                {{ csrf_field() }}
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-md-4 col-form-label produksi-label">Kedisiplinan</label>
                                     <div class="col-md-5">
-                                     <select class="form-control" id="pilihbagian">
+                                     <select class="form-control" id="pilihbagian" name="nilai_kidisipilnan">
                                         @for($nilai=1;$nilai< 10;$nilai++)
-                                            <option>{{$nilai}}</option>
+                                            <option value="{{$nilai}}" >{{$nilai}}</option>
                                             @endfor
                                         </select>
                                     </div>
@@ -52,9 +53,9 @@
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-md-4 col-form-label produksi-label">Tes Praktek</label>
                                     <div class="col-md-5">
-                                        <select class="form-control" id="pilihbagian">
+                                        <select class="form-control" id="pilihbagian" name="tes_praktek">
                                             @for($nilai=1;$nilai< 10;$nilai++)
-                                            <option>{{$nilai}}</option>
+                                            <option value="{{$nilai}}">{{$nilai}}</option>
                                             @endfor
                                         </select>
                                     </div>
@@ -65,9 +66,9 @@
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-md-4 col-form-label produksi-label">Tes Wawanacara</label>
                                     <div class="col-md-5">
-                                     <select class="form-control" id="pilihbagian">
+                                     <select class="form-control" id="pilihbagian" name="tes_wawancara">
                                             <@for($nilai=1;$nilai< 10;$nilai++)
-                                                <option>{{$nilai}}</option>
+                                                <option value="$nilai">{{$nilai}}</option>
                                             @endfor
                                         </select>
                                     </div>
@@ -75,7 +76,8 @@
                                         <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Sub Kriteria</a>
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-primary">Sumbit</button>
+                                
+                                <button type="sumbit" class="btn btn-primary" name="sumbit">Sumbit</button>
                             </form>
                         </div>
                     </div>

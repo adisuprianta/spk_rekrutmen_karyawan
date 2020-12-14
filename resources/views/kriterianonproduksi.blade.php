@@ -36,6 +36,7 @@
                         </div>
                         <div class="col-md-12 form-produksi">
                             <form>
+                            {{ csrf_field() }}
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-md-4 col-form-label produksi-label">Kedisiplinan</label>
                                     <div class="col-md-5">

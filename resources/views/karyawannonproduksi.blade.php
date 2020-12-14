@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 ">
+            <div class="col-md-12 judul">
                 <H1>CALON KARYAWAN NONPRODUKSI</H1>
                 
             </div>

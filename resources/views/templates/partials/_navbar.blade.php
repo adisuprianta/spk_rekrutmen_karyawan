@@ -13,10 +13,10 @@
     <div class=" collapse navbar-collapse justify-content-end menu-item">
         <ul class="nav navbar-nav">
             <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/kriteria">Kriteria</a>
+                <a class="nav-link" href="/kriteria">Kriteria</a>
             </li>
 
             <!-- Dropdown -->

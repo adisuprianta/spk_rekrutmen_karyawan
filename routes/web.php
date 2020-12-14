@@ -20,8 +20,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('kriteria', "KriteriaController@index")->middleware('auth');
-Route::post('kriteria', "KriteriaController@panggil")->middleware('auth');
+
+Route::get('/kriteria', "KriteriaController@index")->middleware('auth');
+Route::post('/kriteria', "KriteriaController@panggil")->middleware('auth');
+
+Route::get('/kriteria/produksi', "KriteriaController@produksi")->middleware('auth');
+Route::post('/kriteria/produksi/update', "KriteriaController@updateproduksi")->middleware('auth');
+Route::get('/kriteria/nonproduksi', "KriteriaController@nonproduksi")->middleware('auth');
 
 Route::get('/home/produksi', "KaryawanController@produksi")->middleware('auth');
 Route::get('/home/nonproduksi', "KaryawanController@nonproduksi")->middleware('auth');

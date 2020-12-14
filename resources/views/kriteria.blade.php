@@ -32,12 +32,12 @@
                                     <!-- <label for="sel1"></label> -->
                                     <div class="col-md-8">  
                                         <select class="form-control" id="pilihbagian" name="pilihbagian">
-                                        <option value="produksi">Produksi</option>
-                                        <option value="nonproduksi">Non Produksi</option>
+                                        <option value="1">Produksi</option>
+                                        <option value="2">Non Produksi</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4">
-                                        <button type="submit" class="btn btn-primary" name="isikriteria">Isi Kreteria</button>
+                                        <button type="submit" class="btn btn-primary" >Isi Kreteria</button>
                                     </div>
                                 </div>
                                 

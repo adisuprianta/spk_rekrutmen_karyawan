@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 ">
+            <div class="col-md-12 judul">
                 <h1>CALON KARYAWAN PRODUKSI</h1>
                 
             </div>
@@ -83,7 +83,8 @@
                                     <td>row->deskripsi_kain</td>
                                     <td>
                                         <button class="btn btn-success btn-sm " id="edit" href="" data-nama="" data-desc="">
-                                            <i class="fa fa-edit"> </i>
+                                            <!-- <i class="fa fa-edit"> </i> -->
+                                            Hitung
                                         </button>
                                         <!-- <button href="" class="btn btn-danger btn-sm" id="delete" data-title="">
                                             <i class="fa fa-trash"> </i>
