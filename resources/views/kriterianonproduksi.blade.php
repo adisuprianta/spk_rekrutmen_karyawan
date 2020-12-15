@@ -13,6 +13,26 @@
         </div>
         <div class="row">
             <div class="col-md-12  content-kriteria-produksi">
+                @if ($message = Session::get('sukses'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
+
+                @if ($message = Session::get('gagal'))
+                <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
+
+                @if ($message = Session::get('peringatan'))
+                <div class="alert alert-warning alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
             <h2>KRITERIA KARYAWAN PRODUKSI</h2>
                 <div class="row">
                     <div class="col-md-6 img-kriteria-produksi">
@@ -35,12 +55,12 @@
                             </div>
                         </div>
                         <div class="col-md-12 form-produksi">
-                            <form>
+                            <form method="POST" action="/kriteria/nonproduksi/update">
                             {{ csrf_field() }}
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-md-4 col-form-label produksi-label">Kedisiplinan</label>
                                     <div class="col-md-5">
-                                     <select class="form-control" id="pilihbagian">
+                                     <select class="form-control" id="Kedisiplinan" name="Kedisiplinan">
                                         @for($nilai=1;$nilai< 10;$nilai++)
                                             <option>{{$nilai}}</option>
                                             @endfor
@@ -53,7 +73,7 @@
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-md-4 col-form-label produksi-label">Tes Tulis</label>
                                     <div class="col-md-5">
-                                     <select class="form-control" id="pilihbagian">
+                                     <select class="form-control" id="testulis" name="Tes_Tulis">
                                         @for($nilai=1;$nilai< 10;$nilai++)
                                             <option>{{$nilai}}</option>
                                             @endfor
@@ -64,9 +84,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-md-4 col-form-label produksi-label">Tes Praktek</label>
+                                    <label for="staticEmail" class="col-md-4 col-form-label produksi-label">Tes Wawanacara</label>
                                     <div class="col-md-5">
-                                        <select class="form-control" id="pilihbagian">
+                                        <select class="form-control" id="pilihbagian" name="Tes_wawancara">
                                             @for($nilai=1;$nilai< 10;$nilai++)
                                             <option>{{$nilai}}</option>
                                             @endfor
@@ -77,9 +97,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-md-4 col-form-label produksi-label">Tes Wawanacara</label>
+                                    <label for="inputPassword" class="col-md-4 col-form-label produksi-label">Psikotes</label>
                                     <div class="col-md-5">
-                                     <select class="form-control" id="pilihbagian">
+                                     <select class="form-control" id="pilihbagian" name="Psikotes">
                                             <@for($nilai=1;$nilai< 10;$nilai++)
                                                 <option>{{$nilai}}</option>
                                             @endfor
@@ -89,7 +109,8 @@
                                         <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Sub Kriteria</a>
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-primary">Sumbit</button>
+                                
+                                <button type="Sumbit" class="btn btn-primary">Sumbit</button>
                             </form>
                         </div>
                     </div>

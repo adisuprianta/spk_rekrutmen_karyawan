@@ -27,7 +27,16 @@ Route::post('/kriteria', "KriteriaController@panggil")->middleware('auth');
 Route::get('/kriteria/produksi', "KriteriaController@produksi")->middleware('auth');
 Route::post('/kriteria/produksi/update', "KriteriaController@updateproduksi")->middleware('auth');
 Route::get('/kriteria/nonproduksi', "KriteriaController@nonproduksi")->middleware('auth');
+Route::post('/kriteria/nonproduksi/update', "KriteriaController@updatenonproduksi")->middleware('auth');
 
 Route::get('/home/produksi', "KaryawanController@produksi")->middleware('auth');
 Route::get('/home/nonproduksi', "KaryawanController@nonproduksi")->middleware('auth');
 // Route::post('/karyawan', "KaryawanController@panggil");
+
+Route::get('/kriteria/produksi/praktik', function(){
+    return view('tespraktik');
+})->middleware('auth');
+
+Route::get('/kriteria/produksi/wawancara', function(){
+    return view('teswawancaraproduksi');
+})->middleware('auth');

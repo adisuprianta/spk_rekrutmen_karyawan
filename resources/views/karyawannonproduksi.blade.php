@@ -66,7 +66,7 @@
                                             <th>Jenis Kelamin</th>
                                             <th>Email</th>
                                             <th>Alamat</th>
-                                            <th>CV</th>
+                                            <th>Berkas</th>
                                             <th>Cek</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -74,21 +74,29 @@
                                     <tbody>
                                         <!--  -->
                                         <tr>
-                                            <td>1</td>
-                                            <td>row->deskripsi_kain</td>
-                                            <td>row->deskripsi_kain</td>
-                                            <td>row->deskripsi_kain</td>
-                                            <td>row->deskripsi_kain</td>
-                                            <td>row->deskripsi_kain</td>
-                                            <td>row->deskripsi_kain</td>
-                                            <td>
-                                                <button class="btn btn-success btn-sm " id="edit" href="" data-nama="" data-desc="">
-                                                    <i class="fa fa-edit"> </i>
-                                                </button>
-                                                <!-- <button href="" class="btn btn-danger btn-sm" id="delete" data-title="">
-                                                    <i class="fa fa-trash"> </i>
-                                                </button> -->
-                                            </td>
+                                        <td>1</td>
+                                    <td>I Ketut Adi Suprianta</td>
+                                    <td>Laki Laki</td>
+                                    <td>Email</td>
+                                    <td>Surabaya</td>
+                                    <td>cc</td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="check" onclick="enablebutton(this)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <!-- <a class="btn btn-success btn-sm " id="edit" href="" data-nama="" data-desc="" href="#">
+                                            Hitung
+                                        </a> -->
+                                        <button class="btn btn-success btn-sm " id="submit" href="" data-nama="" data-desc="" disabled="disabled">
+                                            
+                                            Hitung
+                                        </button>
+                                        <!-- <button href="" class="btn btn-danger btn-sm" id="delete" data-title="">
+                                            <i class="fa fa-trash"> </i>
+                                        </button> -->
+                                    </td>
                                         </tr>
                                         <!-- -->
                                     </tbody>

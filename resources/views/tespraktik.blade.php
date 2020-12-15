@@ -13,27 +13,7 @@
         </div>
         <div class="row">
             <div class="col-md-12  content-kriteria-produksi">
-            @if ($message = Session::get('sukses'))
-                <div class="alert alert-success alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button> 
-                    <strong>{{ $message }}</strong>
-                </div>
-                @endif
-
-                @if ($message = Session::get('gagal'))
-                <div class="alert alert-danger alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button> 
-                    <strong>{{ $message }}</strong>
-                </div>
-                @endif
-
-                @if ($message = Session::get('peringatan'))
-                <div class="alert alert-warning alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button> 
-                    <strong>{{ $message }}</strong>
-                </div>
-                @endif
-            <h2>KRITERIA KARYAWAN PRODUKSI</h2>
+            <h2>SUB KRITERIA TES PRAKTIK</h2>
                 <div class="row">
                     <div class="col-md-6 img-kriteria-produksi">
                         <img src="{{asset('assets/image/Logo-isikretria.png')}}" alt="" height="300">
@@ -58,45 +38,45 @@
                             <form method="POST" action="/kriteria/produksi/update">
                                 {{ csrf_field() }}
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-md-4 col-form-label produksi-label">Kedisiplinan</label>
-                                    <div class="col-md-5">
+                                    <label for="inputPassword" class="col-md-4 col-form-label produksi-label">Kerjasama</label>
+                                    <div class="col-md-6">
                                      <select class="form-control" id="pilihbagian" name="nilai_kidisipilnan" >
                                         @for($nilai=1;$nilai< 10;$nilai++)
                                         @if($nilai==2)
                                             <option value="{{$nilai}}" selected ="selected" >{{$nilai}}</option>
                                         @endif
                                             <option value="{{$nilai}}" >{{$nilai}}</option>
-                                            @endfor
+                                        @endfor
                                         </select>
                                     </div>
-                                    <div class="col-md-3 button">
+                                    <div class="col-md-2 button">
                                         <!-- <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Primary</a> -->
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-md-4 col-form-label produksi-label">Tes Praktik</label>
-                                    <div class="col-md-5">
+                                    <label for="staticEmail" class="col-md-4 col-form-label produksi-label">Kreativitas</label>
+                                    <div class="col-md-6">
                                         <select class="form-control" id="pilihbagian" name="tes_praktek">
                                             @for($nilai=1;$nilai< 10;$nilai++)
                                             <option value="{{$nilai}}">{{$nilai}}</option>
                                             @endfor
                                         </select>
                                     </div>
-                                    <div class="col-md-3 button">
-                                        <a href="/kriteria/produksi/praktik" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Sub Kriteria</a>
+                                    <div class="col-md-2 button">
+                                        <!-- <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Ketrampilan</a> -->
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-md-4 col-form-label produksi-label">Tes Wawanacara</label>
-                                    <div class="col-md-5">
+                                    <label for="inputPassword" class="col-md-4 col-form-label produksi-label">Keterampilan</label>
+                                    <div class="col-md-6">
                                      <select class="form-control" id="pilihbagian" name="tes_wawancara">
                                             <@for($nilai=1;$nilai< 10;$nilai++)
                                                 <option value="{{$nilai}}">{{$nilai}}</option>
                                             @endfor
                                         </select>
                                     </div>
-                                    <div class="col-md-3 button">
-                                        <a href="/kriteria/produksi/wawancara" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Sub Kriteria</a>
+                                    <div class="col-md-2 button">
+                                        <!-- <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Sub Kriteria</a> -->
                                     </div>
                                 </div>
                                 
