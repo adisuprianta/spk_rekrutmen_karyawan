@@ -21,14 +21,19 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//halaman kriteria
 Route::get('/kriteria', "KriteriaController@index")->middleware('auth');
 Route::post('/kriteria', "KriteriaController@panggil")->middleware('auth');
 
+
+//memanggil halaman kriteria produksi dan hitung kriteria
 Route::get('/kriteria/produksi', "KriteriaController@produksi")->middleware('auth');
 Route::post('/kriteria/produksi/update', "KriteriaController@updateproduksi")->middleware('auth');
+//memanggil halaman kriteria nonproduksi dan hitung kriteria
 Route::get('/kriteria/nonproduksi', "KriteriaController@nonproduksi")->middleware('auth');
 Route::post('/kriteria/nonproduksi/update', "KriteriaController@updatenonproduksi")->middleware('auth');
 
+//memanggil karyawan
 Route::get('/home/produksi', "KaryawanController@produksi")->middleware('auth');
 Route::get('/home/nonproduksi', "KaryawanController@nonproduksi")->middleware('auth');
 // Route::post('/karyawan', "KaryawanController@panggil");
@@ -37,7 +42,15 @@ Route::get('/home/nonproduksi', "KaryawanController@nonproduksi")->middleware('a
 //tespraktik
 Route::get('/kriteria/produksi/praktik', 'SubKriteria_Controller@tespraktik')->middleware('auth');
 Route::post('/produksi/praktik/update', 'SubKriteria_Controller@updatetespraktik')->middleware('auth');
+//teswawancaraproduksi
+Route::get('/kriteria/produksi/wawancara',  'SubKriteria_Controller@teswawancarap')->middleware('auth');
+Route::post('/produksi/wawancara/update',  'SubKriteria_Controller@updateteswawancarap')->middleware('auth');
 
-Route::get('/kriteria/produksi/wawancara', function(){
-    return view('teswawancaraproduksi');
-})->middleware('auth');
+
+//teswawancaraproduksi
+Route::get('/kriteria/nonproduksi/wawancara', 'SubKriteria_Controller@wawancaran')->middleware('auth');
+Route::post('/nonproduksi/wawancara/update', 'SubKriteria_Controller@updatewawancaran')->middleware('auth');
+
+//psikotes
+Route::get('/kriteria/nonproduksi/psikotes', 'SubKriteria_Controller@psikotes')->middleware('auth');
+Route::post('/nonproduksi/psikotes/update', 'SubKriteria_Controller@updatepsikotes')->middleware('auth');

@@ -29,21 +29,21 @@ class Sub_Kriteria_ahpSeeder extends Seeder
             [
                 'id_sub_kriteria'=>'Tp3',
                 'id_kriteria'=>'kp2',
-                'nama_sub_kriteria'=>'Kretrampilan',
+                'nama_sub_kriteria'=>'Ketrampilan',
                 'bobot_sub_kriteria'=>'0',
                 'nilai_perbandingan_sub_kriteria'=>'0'
             ],
             [
                 'id_sub_kriteria'=>'Tw1',
                 'id_kriteria'=>'kp3',
-                'nama_sub_kriteria'=>'Krakter',
+                'nama_sub_kriteria'=>'Karakter',
                 'bobot_sub_kriteria'=>'0',
                 'nilai_perbandingan_sub_kriteria'=>'0'
             ],
             [
                 'id_sub_kriteria'=>'Tw2',
                 'id_kriteria'=>'kp3',
-                'nama_sub_kriteria'=>'Masa_Pengalaman_Kerja',
+                'nama_sub_kriteria'=>'Masa Pengalaman Kerja',
                 'bobot_sub_kriteria'=>'0',
                 'nilai_perbandingan_sub_kriteria'=>'0'
             ],
@@ -65,7 +65,7 @@ class Sub_Kriteria_ahpSeeder extends Seeder
             [
                 'id_sub_kriteria'=>'Nw1',
                 'id_kriteria'=>'kn3',
-                'nama_sub_kriteria'=>'Krakter',
+                'nama_sub_kriteria'=>'Karakter',
                 'bobot_sub_kriteria'=>'0',
                 'nilai_perbandingan_sub_kriteria'=>'0'
             ],

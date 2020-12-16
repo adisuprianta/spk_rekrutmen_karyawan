@@ -16,7 +16,7 @@
             <h2>SUB KRITERIA TES PRAKTIK</h2>
                 <div class="row">
                     <div class="col-md-6 img-kriteria-produksi">
-                        <img src="{{asset('assets/image/Logo-isikretria.png')}}" alt="" height="300">
+                        <img src="{{asset('assets/image/logo-tespraktik.png')}}" alt="" height="300">
                     </div>
                     <div class="col-md-6 kriteria-text">
                         <div class="row">

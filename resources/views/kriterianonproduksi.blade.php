@@ -33,7 +33,7 @@
                     <strong>{{ $message }}</strong>
                 </div>
                 @endif
-            <h2>KRITERIA KARYAWAN PRODUKSI</h2>
+            <h2>KRITERIA KARYAWAN NON-PRODUKSI</h2>
                 <div class="row">
                     <div class="col-md-6 img-kriteria-produksi">
                         <img src="{{asset('assets/image/logo-nonproduksi.png')}}" alt="" height="300">
@@ -93,7 +93,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-3 button">
-                                        <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Sub Kriteria</a>
+                                        <a href="/kriteria/nonproduksi/wawancara" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Sub Kriteria</a>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -106,7 +106,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-3 button">
-                                        <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Sub Kriteria</a>
+                                        <a href="/kriteria/nonproduksi/psikotes" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Sub Kriteria</a>
                                     </div>
                                 </div>
                                 

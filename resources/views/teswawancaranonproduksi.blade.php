@@ -16,7 +16,7 @@
             <h2>SUB KRITERIA TES WAWANCARA</h2>
                 <div class="row">
                     <div class="col-md-6 img-kriteria-produksi">
-                        <img src="{{asset('assets/image/logo-produksi-wawancara.png')}}" alt="" height="320">
+                        <img src="{{asset('assets/image/logo-nonproduksi-wawancara.png')}}" alt="" height="320">
                     </div>
                     <div class="col-md-6 kriteria-text">
                         <div class="row">
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 form-produksi">
-                            <form method="POST" action="/produksi/wawancara/update">
+                            <form method="POST" action="/nonproduksi/wawancara/update">
                                 {{ csrf_field() }}
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-md-5 col-form-label produksi-label">Karakter</label>
