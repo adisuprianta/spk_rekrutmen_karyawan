@@ -15,8 +15,10 @@ class CreateTabelNilaiSubKriteriaCalonKaryawanSaw extends Migration
     {
         Schema::create('nilai_sub_calon_karyawan_saw', function (Blueprint $table) {
             $table->increments('id_nilai_sub_kriteria');
+            $table->integer('id_calon_karyawan')->unsigned();
             $table->char('id_sub_kriteria',3);
             $table->integer('nilai_sub_kriteria');
+            $table->foreign('id_calon_karyawan')->references('id_calon_karyawan')->on('calon_karyawan')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('id_sub_kriteria')->references('id_sub_kriteria')->on('sub_kriteria_ahp')->onUpdate('cascade')->onDelete('restrict');
         });
     }

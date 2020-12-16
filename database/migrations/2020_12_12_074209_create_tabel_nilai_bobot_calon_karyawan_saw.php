@@ -13,7 +13,7 @@ class CreateTabelNilaiBobotCalonKaryawanSaw extends Migration
      */
     public function up()
     {
-        Schema::create('nilai_bobot_calon_karyawan', function (Blueprint $table) {
+        Schema::create('bobot_calon_karyawan', function (Blueprint $table) {
             $table->char('id_bobotcalon_karyawan',3)->primary();
             $table->char('id_nilai',3);
             $table->decimal('nilai_bobot_calon_karyawan',18,4);
@@ -31,6 +31,6 @@ class CreateTabelNilaiBobotCalonKaryawanSaw extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nilai_bobot_calon_karyawan');
+        Schema::dropIfExists('bobot_calon_karyawan');
     }
 }

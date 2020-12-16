@@ -20,8 +20,12 @@
                 <div class="card">
                     <div class="card-header">
                         <!-- <strong class="card-title">Tabel Data Kain</strong> -->
-                        <a href="#" class="btn btn-info float-left mb-3" data-toggle="modal" data-target="#createModal"> <i class="fa fa-plus"></i>
+                        <!-- <a href="/home/karyawan/produksi" class="btn btn-info float-left active mb-3" data-toggle="modal" data-target="#createModal"> <i class="fa fa-plus"></i>
+                        Tambah Data</a> -->
+                        <a href="/home/karyawan/bg0" class="btn btn-info float-left active mb-3" role="button" aria-pressed="true"> 
+                        <i class="fa fa-plus"></i>
                         Tambah Data</a>
+                        
                         <form class="form-inline float-right" action="#" method="POST">
                             <!-- <div class="form-group mb-2">
                                 <label for="staticEmail2" class="sr-only">Email</label>

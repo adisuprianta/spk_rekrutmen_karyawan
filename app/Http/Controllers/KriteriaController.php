@@ -75,12 +75,13 @@ class KriteriaController extends Controller
                 // echo $normalisi[$j][$i]."aku" ;
             }
         }
+        
         $bobot = array();
         for($i=0;$i<count($jumlah);$i++){
             $bobot[$i]=$jn[$i]/count($jn);
         }
             
-
+        
         DB::table('kriteria_ahp')->where('id_kriteria','kp1')->update([
                 "bobot_kriteria"=>$bobot[0],
                 "Nilai_perbandingan_kriteria"=>$ke

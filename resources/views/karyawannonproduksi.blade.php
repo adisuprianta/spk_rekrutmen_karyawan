@@ -20,8 +20,13 @@
                         <div class="card">
                             <div class="card-header">
                                 <!-- <strong class="card-title">Tabel Data Kain</strong> -->
-                                <a href="#" class="btn btn-info float-left mb-3" data-toggle="modal" data-target="#createModal"> <i class="fa fa-plus"></i>
+                                <!-- <a href="#" class="btn btn-info float-left mb-3" data-toggle="modal" data-target="#createModal"> <i class="fa fa-plus"></i>
+                                Tambah Data</a> -->
+                                @foreach($bagian as $p)
+                                <a href="/home/karyawan/{{$p->id_bagian}}" class="btn btn-info float-left active mb-3" role="button" aria-pressed="true"> 
+                                <i class="fa fa-plus"></i>
                                 Tambah Data</a>
+                                @endforeach
                                 <form class="form-inline float-right">
                                     <!-- <div class="form-group mb-2">
                                         <label for="staticEmail2" class="sr-only">Email</label>
@@ -103,7 +108,8 @@
                                 </table>                                
                             </div>
                         </div>
-                    </div>   
+                    </div>
+            </div>   
         </div>
         
     </div>

@@ -3,6 +3,7 @@
 <script type="text/javascript" src="{{asset('dist/js/bootstrap.min.js')}}">  </script>
 <script type="text/javascript" src="{{asset('assets/js/Chart.js')}}">  </script>
 <script type="text/javascript" src="{{asset('assets/js/main.js')}}">  </script>
+<script type="text/javascript" src="{{asset('dist/js/bootstrap-datepicker.min.js')}}"> </script>
 
 <!-- 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

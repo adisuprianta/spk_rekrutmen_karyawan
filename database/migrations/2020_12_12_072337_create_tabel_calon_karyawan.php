@@ -14,14 +14,13 @@ class CreateTabelCalonKaryawan extends Migration
     public function up()
     {
         Schema::create('calon_karyawan', function (Blueprint $table) {
-            $table->char('id_calon_karyawan',3)->primary();
+            $table->increments('id_calon_karyawan');
             $table->integer('id_hrd')->unsigned();
             $table->char('id_bagian',3);
             $table->string('Nama_Calon_karyawan',30);
-            $table->string('Email',20);
+            $table->string('Email',100);
             $table->string('No_Hp',13);
             $table->string('Alamat',50);
-            $table->string('NIK',16);
             $table->date('Tanggal_daftar');
             $table->string('Pendidikan',20);
             $table->date('Tanggal_Lahir');

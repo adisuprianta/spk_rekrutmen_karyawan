@@ -15,10 +15,10 @@ class CreateTabelBinilaiKriteriaCalonKaryawanSaw extends Migration
     {
         Schema::create('nilai_kriteria_calon_karyawan', function (Blueprint $table) {
             $table->char('id_nilai',3)->primary();
-            $table->char('id_karyawan',3);
+            $table->integer('id_calon_karyawan')->unsigned();
             $table->char('id_kriteria',3);
             $table->integer('nilai_kriteria');
-            $table->foreign('id_karyawan')->references('id_calon_karyawan')->on('calon_karyawan')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('id_calon_karyawan')->references('id_calon_karyawan')->on('calon_karyawan')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('id_kriteria')->references('id_kriteria')->on('kriteria_ahp')->onUpdate('cascade')->onDelete('restrict');
         });
     }

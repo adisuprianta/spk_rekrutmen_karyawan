@@ -15,7 +15,7 @@ class CreateTabelBerkasKaryawan extends Migration
     {
         Schema::create('berkas_karyawan', function (Blueprint $table) {
             $table->increments('id_berkas');
-            $table->char('id_calon_karyawan',3);
+            $table->integer('id_calon_karyawan')->unsigned();
             $table->string('nama_berkas');
             $table->foreign('id_calon_karyawan')->references('id_calon_karyawan')->on('calon_karyawan')->onUpdate('cascade')->onDelete('restrict');
         });

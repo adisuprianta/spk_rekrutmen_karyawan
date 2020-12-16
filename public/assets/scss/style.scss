@@ -189,5 +189,10 @@ body{background-color: $primarycolor;
         text-align: center;
         color: $text-color;
         font-size: 2em;
+        text-transform: uppercase;
     }
+}
+//input karyawan
+.form-input{
+    color: $text-color;
 }

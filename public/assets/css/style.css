@@ -188,5 +188,10 @@ body {
   text-align: center;
   color: white;
   font-size: 2em;
+  text-transform: uppercase;
+}
+
+.form-input {
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */

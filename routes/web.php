@@ -33,10 +33,7 @@ Route::post('/kriteria/produksi/update', "KriteriaController@updateproduksi")->m
 Route::get('/kriteria/nonproduksi', "KriteriaController@nonproduksi")->middleware('auth');
 Route::post('/kriteria/nonproduksi/update', "KriteriaController@updatenonproduksi")->middleware('auth');
 
-//memanggil karyawan
-Route::get('/home/produksi', "KaryawanController@produksi")->middleware('auth');
-Route::get('/home/nonproduksi', "KaryawanController@nonproduksi")->middleware('auth');
-// Route::post('/karyawan', "KaryawanController@panggil");
+
 
 
 //tespraktik
@@ -54,3 +51,10 @@ Route::post('/nonproduksi/wawancara/update', 'SubKriteria_Controller@updatewawan
 //psikotes
 Route::get('/kriteria/nonproduksi/psikotes', 'SubKriteria_Controller@psikotes')->middleware('auth');
 Route::post('/nonproduksi/psikotes/update', 'SubKriteria_Controller@updatepsikotes')->middleware('auth');
+
+
+//memanggil karyawan
+// Route::get('/home/produksi', "KaryawanController@produksi")->middleware('auth');
+Route::get('/home/{nama}', "KaryawanController@karyawan")->middleware('auth');
+Route::get('/home/karyawan/{id}',"KaryawanController@karyawaninput")->middleware('auth');
+Route::post('/karyawan/input', "KaryawanController@input");
