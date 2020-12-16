@@ -33,9 +33,10 @@ Route::get('/home/produksi', "KaryawanController@produksi")->middleware('auth');
 Route::get('/home/nonproduksi', "KaryawanController@nonproduksi")->middleware('auth');
 // Route::post('/karyawan', "KaryawanController@panggil");
 
-Route::get('/kriteria/produksi/praktik', function(){
-    return view('tespraktik');
-})->middleware('auth');
+
+//tespraktik
+Route::get('/kriteria/produksi/praktik', 'SubKriteria_Controller@tespraktik')->middleware('auth');
+Route::post('/produksi/praktik/update', 'SubKriteria_Controller@updatetespraktik')->middleware('auth');
 
 Route::get('/kriteria/produksi/wawancara', function(){
     return view('teswawancaraproduksi');

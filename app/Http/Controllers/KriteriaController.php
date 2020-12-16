@@ -11,6 +11,8 @@ class KriteriaController extends Controller
     public function index(){
         return view("kriteria");
     }
+
+    // funcition untuk pindah halaman dari kriteria ke kriteria produksi dan non prodksi
     public function panggil(Request $request){
         if(strcmp($request->pilihbagian,'1')==0){
             return redirect('/kriteria/produksi');
@@ -23,6 +25,8 @@ class KriteriaController extends Controller
         // }
         // return view('kriteria'.$request->pilihbagian);
     }
+
+    //memanggil halaman kriteria produksi dan non produksi
     public function produksi(){
         return view('kriteriaproduksi');
     }
@@ -30,6 +34,8 @@ class KriteriaController extends Controller
         return view('kriterianonproduksi');
     }
 
+
+    //update produksi kriteria
     public function updateproduksi(Request $request){
         $ke=(Double) $request->nilai_kidisipilnan;
         $tesw=(Double) $request->tes_praktek;
@@ -92,6 +98,8 @@ class KriteriaController extends Controller
         
     }
 
+
+    //update non produksi kriteria
     public function updatenonproduksi(Request $request){
         $ke = $request->Kedisiplinan;
         $tulis = $request->Tes_Tulis;
@@ -168,4 +176,8 @@ class KriteriaController extends Controller
         // return $bobot[0];
             
         }
+
+        
+        
+
 }
