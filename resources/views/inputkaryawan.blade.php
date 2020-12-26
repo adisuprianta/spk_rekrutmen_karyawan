@@ -27,6 +27,23 @@
                     <label for="exampleInputEmail1">Nama Calon Karyawan</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nama" placeholder="Enter nama">
                 </div>
+                
+                <div class="form-group row">
+                
+                    <div class="col-md-4">
+                        <label for="exampleInputEmail1">Jenis Kelamin : </label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="lengan1" value="L">
+                            <label class="form-check-label" for="lengan1">Laki Laki</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="lengan2" value="P">
+                            <label class="form-check-label" for="lengan2">Perempuan</label>
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter email">
@@ -41,7 +58,7 @@
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-th"></span>
                         </div>
-                        <input placeholder="masukkan tanggal Awal" type="text" class="form-control datepicker" name="tgl_lahir">
+                        <input placeholder="masukkan tanggal Awal" type="date" class="form-control datepicker" name="tgl_lahir">
                     </div>
                 </div>
                 <div class="form-group">

@@ -20,6 +20,8 @@ class CreateTabelCalonKaryawan extends Migration
             $table->string('Nama_Calon_karyawan',30);
             $table->string('Email',100);
             $table->string('No_Hp',13);
+            $table->integer('approve');
+            $table->char('jekel',1);
             $table->string('Alamat',50);
             $table->date('Tanggal_daftar');
             $table->string('Pendidikan',20);

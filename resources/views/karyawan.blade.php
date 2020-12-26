@@ -86,24 +86,28 @@
                                     @endphp
                                         @foreach($calon as $s)
                                         <tr>
-                                            <td>{{$c++}}</td>
+                                            <td>{{$c}}</td>
                                             <td>{{$s->Nama_Calon_karyawan}}</td>
                                             <td>{{$s->Pendidikan}}</td>
                                             <td>{{$s->No_Hp}}</td>
                                             <td>{{$s->Email}}</td>
                                             <td>{{$s->Alamat}}</td>
                                             <td>{{$s->Tanggal_Lahir}}</td>
-                                            <td>cc</td>
+                                            <td></td>
+                                            @if($s->approve==0)
                                             <td>
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="check" onclick="enablebutton(this)">
-                                                </div>
+                                            
+                                                <form action="">
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input" id="{{$c}}" onclick="enablebutton({{count($calon)}})">
+                                                    </div>
+                                                </form>
                                             </td>
                                             <td>
                                                 <!-- <a class="btn btn-success btn-sm " id="edit" href="" data-nama="" data-desc="" href="#">
                                                     Hitung
                                                 </a> -->
-                                                <button class="btn btn-success btn-sm " id="submit" href="" data-nama="" data-desc="" disabled="disabled">
+                                                <button class="btn btn-success btn-sm " id="submit{{$c++}}" href="" data-nama="" data-desc="" disabled="disabled">
                                                     
                                                     Hitung
                                                 </button>
@@ -111,6 +115,29 @@
                                                     <i class="fa fa-trash"> </i>
                                                 </button> -->
                                             </td>
+                                            @else
+                                                <td>
+                                            
+                                                <form action="">
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input" id="{{$c}}" onclick="enablebutton({{count($calon)}})" checked='checked'>
+                                                    </div>
+                                                </form>
+                                                </td>
+                                                <td>
+                                                <!-- <a class="btn btn-success btn-sm " id="edit" href="" data-nama="" data-desc="" href="#">
+                                                    Hitung
+                                                </a> -->
+                                                <button class="btn btn-success btn-sm " id="submit{{$c++}}" href="" data-nama="" data-desc="">
+                                                    
+                                                    Hitung
+                                                </button>
+                                                <!-- <button href="" class="btn btn-danger btn-sm" id="delete" data-title="">
+                                                    <i class="fa fa-trash"> </i>
+                                                </button> -->
+                                            </td>
+                                            @endif
+                                            
                                         </tr>
                                         @endforeach
                                         <!--  -->
@@ -129,4 +156,7 @@
 
 @push('scripts')
     @include('templates.partials._scripts')
+    <script type="text/javascript">
+        
+    </script>
 @endpush

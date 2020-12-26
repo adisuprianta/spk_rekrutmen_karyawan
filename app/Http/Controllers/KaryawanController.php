@@ -13,7 +13,9 @@ class KaryawanController extends Controller
     // }
     public function karyawan($nama){
         $bagian=DB::table('bagian')->where('nama_bagian',$nama)->get();
-        $calon=DB::table('calon_karyawan')->get();
+        foreach($bagian as $p){
+        $calon=DB::table('calon_karyawan')->where('id_bagian',$p->id_bagian)->get();
+        }
         return view("karyawan",['bagian' => $bagian, 'calon'=>$calon]);
     }
     // public function panggil(Request $request){
@@ -38,6 +40,8 @@ class KaryawanController extends Controller
             'nama_calon_karyawan'=>$request->nama,
             'email'=>$request->email,
             'no_hp'=>$request->nohp,
+            'jekel'=>$request->jenis_kelamin,
+            'approve'=>0,
             'alamat'=>$request->alamat,
             'Tanggal_daftar'=>(new datetime()),
             'pendidikan'=>$request->pendidikan,
