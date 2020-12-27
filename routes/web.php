@@ -58,3 +58,10 @@ Route::post('/nonproduksi/psikotes/update', 'SubKriteria_Controller@updatepsikot
 Route::get('/home/{nama}', "KaryawanController@karyawan")->middleware('auth');
 Route::get('/home/karyawan/{id}',"KaryawanController@karyawaninput")->middleware('auth');
 Route::post('/karyawan/input', "KaryawanController@input");
+
+// memanggil input saw
+// Route::post('/home/produksi', function(){
+//     return view ('inputnilaisaw');
+// })->middleware('auth');
+Route::get('home/{produksi}/{id}','ControllerSaw@inputsaw')->middleware('auth');
+Route::post('home/{produksi}/{id}','ControllerSaw@inputsaw')->middleware('auth');

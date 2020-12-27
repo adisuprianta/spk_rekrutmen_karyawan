@@ -93,7 +93,10 @@
                                             <td>{{$s->Email}}</td>
                                             <td>{{$s->Alamat}}</td>
                                             <td>{{$s->Tanggal_Lahir}}</td>
-                                            <td></td>
+                                            <td><a href="{{ url('/data_file/'.$s->nama_berkas) }}">
+                                                {{$s->nama_berkas}}
+                                                </a>
+                                            </td>
                                             @if($s->approve==0)
                                             <td>
                                             
@@ -107,10 +110,13 @@
                                                 <!-- <a class="btn btn-success btn-sm " id="edit" href="" data-nama="" data-desc="" href="#">
                                                     Hitung
                                                 </a> -->
-                                                <button class="btn btn-success btn-sm " id="submit{{$c++}}" href="" data-nama="" data-desc="" disabled="disabled">
-                                                    
-                                                    Hitung
+                                                <form action="{{$p->nama_bagian}}/{{$s->id_calon_karyawan}}" method="post">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="id_karyawan" value="{{$s->id_calon_karyawan}}"/>
+                                                <button class="btn btn-success btn-sm " id="submit{{$c++}}"  data-nama="" data-desc="" disabled="disabled">
+                                                    Nilai
                                                 </button>
+                                                </form>
                                                 <!-- <button href="" class="btn btn-danger btn-sm" id="delete" data-title="">
                                                     <i class="fa fa-trash"> </i>
                                                 </button> -->
@@ -128,10 +134,13 @@
                                                 <!-- <a class="btn btn-success btn-sm " id="edit" href="" data-nama="" data-desc="" href="#">
                                                     Hitung
                                                 </a> -->
-                                                <button class="btn btn-success btn-sm " id="submit{{$c++}}" href="" data-nama="" data-desc="">
-                                                    
-                                                    Hitung
-                                                </button>
+                                                <form action="{{$p->nama_bagian}}/{{$s->id_calon_karyawan}}" method="post">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="id_karyawan" value="{{$s->id_calon_karyawan}}"/>
+                                                    <button class="btn btn-success btn-sm " id="submit{{$c++}}" data-nama="" data-desc="">
+                                                        Nilai
+                                                    </button>
+                                                </form>
                                                 <!-- <button href="" class="btn btn-danger btn-sm" id="delete" data-title="">
                                                     <i class="fa fa-trash"> </i>
                                                 </button> -->

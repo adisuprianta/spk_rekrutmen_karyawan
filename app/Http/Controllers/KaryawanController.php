@@ -34,6 +34,29 @@ class KaryawanController extends Controller
     }
 
     public function input(Request $request){
+        
+        $this->validate($request, [
+			'file' => 'required',
+        ]);
+        
+ 
+		// menyimpan data file yang diupload ke variabel $file
+		$file = $request->file('file');
+        
+        $nama_file = date('Y-m-d H-i-s')."_".$request->nama." ".$request->id_bagian.".".$file->getClientOriginalExtension();
+                // nama file
+        
+        
+        $tujuan_upload = 'berkas_file';
+        $file->move($tujuan_upload,$nama_file);
+        // return $nama_file;
+        // menyimpan data file yang diupload ke variabel $file
+        // $file = $request->file('file');
+        
+
+
+        // return $file->getClientOriginalName();
+
         DB::table('calon_karyawan')->insert([
             'id_hrd'=>Auth::user()->id,
             'id_bagian'=>$request->id_bagian,
@@ -45,7 +68,8 @@ class KaryawanController extends Controller
             'alamat'=>$request->alamat,
             'Tanggal_daftar'=>(new datetime()),
             'pendidikan'=>$request->pendidikan,
-            'tanggal_lahir'=>$request->tgl_lahir
+            'tanggal_lahir'=>$request->tgl_lahir,
+            'nama_berkas'=>$nama_file
         ]);
         $bagian=DB::table('bagian')->where('id_bagian',$request->id_bagian,)->get();
         foreach( $bagian as $p){
