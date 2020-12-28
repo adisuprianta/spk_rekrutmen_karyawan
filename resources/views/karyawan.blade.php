@@ -112,7 +112,7 @@
                                                 <form action="{{$p->nama_bagian}}/{{$s->id_calon_karyawan}}" method="post">
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="id_karyawan" value="{{$s->id_calon_karyawan}}"/>
-                                                <button class="btn btn-success btn-sm btn-nilai" id="submit{{$c++}}" data-nama="" data-desc="" disabled="disabled">
+                                                <button class="btn btn-success btn-sm btn-nilai" id="submit{{$s->id_calon_karyawan}}" data-nama="" data-desc="" disabled="disabled">
                                                     Nilai
                                                 </button>
                                                 </form>

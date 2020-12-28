@@ -14,8 +14,8 @@ class CreateTabelNilaiBobotCalonKaryawanSaw extends Migration
     public function up()
     {
         Schema::create('bobot_calon_karyawan', function (Blueprint $table) {
-            $table->char('id_bobotcalon_karyawan',3)->primary();
-            $table->char('id_nilai',3);
+            $table->increments('id_bobotcalon_karyawan');
+            $table->integer('id_nilai')->unsigned();
             $table->decimal('nilai_bobot_calon_karyawan',18,4);
             $table->foreign('id_nilai')->references('id_nilai')->on('nilai_kriteria_calon_karyawan')->onUpdate('cascade')->onDelete('restrict');
 

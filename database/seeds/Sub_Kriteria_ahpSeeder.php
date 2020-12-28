@@ -90,23 +90,24 @@ class Sub_Kriteria_ahpSeeder extends Seeder
                 'bobot_sub_kriteria'=>'0',
                 'nilai_perbandingan_sub_kriteria'=>'0'
             ],
+
             [
                 'id_sub_kriteria'=>'Ps1',
-                'id_kriteria'=>'kn3',
+                'id_kriteria'=>'kn4',
                 'nama_sub_kriteria'=>'Kepribadian',
                 'bobot_sub_kriteria'=>'0',
                 'nilai_perbandingan_sub_kriteria'=>'0'
             ],
             [
                 'id_sub_kriteria'=>'Ps2',
-                'id_kriteria'=>'kn3',
+                'id_kriteria'=>'kn4',
                 'nama_sub_kriteria'=>'Moral',
                 'bobot_sub_kriteria'=>'0',
                 'nilai_perbandingan_sub_kriteria'=>'0'
             ],
             [
                 'id_sub_kriteria'=>'Ps3',
-                'id_kriteria'=>'kn3',
+                'id_kriteria'=>'kn4',
                 'nama_sub_kriteria'=>'Kepemimpinan',
                 'bobot_sub_kriteria'=>'0',
                 'nilai_perbandingan_sub_kriteria'=>'0'

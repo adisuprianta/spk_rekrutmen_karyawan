@@ -67,5 +67,9 @@ Route::get('karyawan/check/{id}/{val}',"KaryawanController@karyawanCheck")->midd
 // Route::post('/home/produksi', function(){
 //     return view ('inputnilaisaw');
 // })->middleware('auth');
-Route::get('home/{produksi}/{id}','ControllerSaw@inputsaw')->middleware('auth');
-Route::post('home/{produksi}/{id}','ControllerSaw@inputsaw')->middleware('auth');
+// Route::get('home/{produksi}/{id}','ControllerSaw@inputsaw')->middleware('auth');
+Route::post('home/{produksi}/{id}','ControllerSaw@tampilsaw')->middleware('auth');
+Route::post('home/Produksi/input/saw', 'ControllerSaw@inputsaw')->middleware('auth');
+Route::post('home/NonProduksi/input/saw', 'ControllerSaw@inputsaw')->middleware('auth');
+
+Route::get('tes', 'ControllerSaw@hitungsaw');

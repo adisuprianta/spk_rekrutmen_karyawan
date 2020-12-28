@@ -22,45 +22,51 @@
             @foreach($karyawan as $k)
                 @if($k->id_bagian == 'bg0')
                     <div class="col-md-12 mt-5">
-                    <form class="row form-saw">
+                    <form class="row form-saw" method="post" action="input/saw">
+                    {{ csrf_field() }}
+                    @foreach($karyawan as $k)
+                    <input type="hidden" name="id_bagian" value="{{$k->id_bagian}}"/>
+                    <input type="hidden" name="id_karyawan" value="{{$k->id_calon_karyawan}}"/>
+                    @endforeach
+                    
                         <div class="col-md-4 tanpa-sub">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Kedisiplinan</label>
-                                <input type="number" class="form-control"  id="quantity" name="kedisiplinan" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="kedisiplinan" min="0" max="100" value="0">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <h4 class="judul-group">Tes Wawancara</h4>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Karakter</label>
-                                <input type="number" class="form-control"  id="quantity" name="karkater" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="karakter" min="0" max="100" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Masa Pengalaaman Kerja</label>
-                                <input type="number" class="form-control"  id="quantity" name="pengalaman" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="pengalaman" min="0" max="100" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Komunikasi</label>
-                                <input type="number" class="form-control"  id="quantity" name="komunikasi" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="komunikasi" min="0" max="100" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Attitude</label>
-                                <input type="number" class="form-control"  id="quantity" name="attitude" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="attitude" min="0" max="100" value="0">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <h4 class="judul-group">Tes Praktek</h4>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Kerjasama</label>
-                                <input type="number" class="form-control"  id="quantity" name="kerjasama" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="kerjasama" min="0" max="100" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Kreativitas</label>
-                                <input type="number" class="form-control"  id="quantity" name="kreativitas" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="kreativitas" min="0" max="100" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ketrampilan</label>
-                                <input type="number" class="form-control"  id="quantity" name="ketrampilan" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="ketrampilan" min="0" max="100" value="0">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
@@ -70,49 +76,54 @@
                 <!-- non -->
                 @else
                 <div class="col-md-12 mt-5 ">
-                    <form class="row form-saw">
+                    <form class="row form-saw" method="post" action="input/saw">
+                    {{ csrf_field() }}
+                    @foreach($karyawan as $k)
+                    <input type="hidden" name="id_bagian" value="{{$k->id_bagian}}"/>
+                    <input type="hidden" name="id_karyawan" value="{{$k->id_calon_karyawan}}"/>
+                    @endforeach
                         <div class="col-md-4 tanpa-sub">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Kedisiplinan</label>
-                                <input type="number" class="form-control"  id="quantity" name="kedisiplinan" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="kedisiplinan" min="0" max="100" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tes Tulis</label>
-                                <input type="number" class="form-control"  id="quantity" name="testulis" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="testulis" min="0" max="100" value="0">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <h4 class="judul-group">Tes Wawancara</h4>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Karakter</label>
-                                <input type="number" class="form-control"  id="quantity" name="karkater" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="karakter" min="0" max="100" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Masa Pengalaaman Kerja</label>
-                                <input type="number" class="form-control"  id="quantity" name="pengalaman" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="pengalaman" min="0" max="100" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Komunikasi</label>
-                                <input type="number" class="form-control"  id="quantity" name="komunikasi" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="komunikasi" min="0" max="100" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Attitude</label>
-                                <input type="number" class="form-control"  id="quantity" name="attitude" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="attitude" min="0" max="100" value="0">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <h4 class="judul-group">Psikotes</h4>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Kepribadian</label>
-                                <input type="number" class="form-control"  id="quantity" name="kepribadian" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="kepribadian" min="0" max="100" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Moral</label>
-                                <input type="number" class="form-control"  id="quantity" name="moral" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="moral" min="0" max="100" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Kepemimpinan</label>
-                                <input type="number" class="form-control"  id="quantity" name="kepemimpinan" min="0" max="100" >
+                                <input type="number" class="form-control"  id="quantity" name="kepemimpinan" min="0" max="100" value="0">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>

@@ -14,7 +14,7 @@ class CreateTabelBinilaiKriteriaCalonKaryawanSaw extends Migration
     public function up()
     {
         Schema::create('nilai_kriteria_calon_karyawan', function (Blueprint $table) {
-            $table->char('id_nilai',3)->primary();
+            $table->increments('id_nilai');
             $table->integer('id_calon_karyawan')->unsigned();
             $table->char('id_kriteria',3);
             $table->integer('nilai_kriteria');
