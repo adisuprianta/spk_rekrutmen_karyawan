@@ -99,12 +99,11 @@
                                             </td>
                                             @if($s->approve==0)
                                             <td>
-                                            
-                                                <form action="">
+                                                <!-- <form action=""> -->
                                                     <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input" id="{{$c}}" onclick="enablebutton({{count($calon)}})">
+                                                        <input type="checkbox" class="form-check-input check-karyawan" value="{{$s->id_calon_karyawan}}" onclick="enableButton(this)">
                                                     </div>
-                                                </form>
+                                                <!-- </form> -->
                                             </td>
                                             <td>
                                                 <!-- <a class="btn btn-success btn-sm " id="edit" href="" data-nama="" data-desc="" href="#">
@@ -113,7 +112,7 @@
                                                 <form action="{{$p->nama_bagian}}/{{$s->id_calon_karyawan}}" method="post">
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="id_karyawan" value="{{$s->id_calon_karyawan}}"/>
-                                                <button class="btn btn-success btn-sm " id="submit{{$c++}}"  data-nama="" data-desc="" disabled="disabled">
+                                                <button class="btn btn-success btn-sm btn-nilai" id="submit{{$c++}}" data-nama="" data-desc="" disabled="disabled">
                                                     Nilai
                                                 </button>
                                                 </form>
@@ -124,11 +123,11 @@
                                             @else
                                                 <td>
                                             
-                                                <form action="">
+                                                <!-- <form action=""> -->
                                                     <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input" id="{{$c}}" onclick="enablebutton({{count($calon)}})" checked='checked'>
+                                                        <input type="checkbox" class="form-check-input check-karyawan" value="{{$s->id_calon_karyawan}}" onclick="enableButton(this)" checked>
                                                     </div>
-                                                </form>
+                                                <!-- </form> -->
                                                 </td>
                                                 <td>
                                                 <!-- <a class="btn btn-success btn-sm " id="edit" href="" data-nama="" data-desc="" href="#">
@@ -137,7 +136,7 @@
                                                 <form action="{{$p->nama_bagian}}/{{$s->id_calon_karyawan}}" method="post">
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="id_karyawan" value="{{$s->id_calon_karyawan}}"/>
-                                                    <button class="btn btn-success btn-sm " id="submit{{$c++}}" data-nama="" data-desc="">
+                                                    <button class="btn btn-success btn-sm btn-nilai " id="submit{{$s->id_calon_karyawan}}" data-nama="" data-desc="">
                                                         Nilai
                                                     </button>
                                                 </form>
@@ -166,6 +165,45 @@
 @push('scripts')
     @include('templates.partials._scripts')
     <script type="text/javascript">
-        
+    
+    $(document).ready( function () {
+        $('#basic-datatables').DataTable();
+    } );
+
+        function enableButton(kar){
+            val ='';
+            id= $(kar).val();
+            if(kar.checked) {
+                val = 'approved';
+            }else{
+                val = 'rejected';
+            }
+            console.log(kar.value);
+            $.get({
+                url:"{{url('karyawan/check')}}/"+ id + "/"+ val,
+                type:'GET',
+                // dataType: 'json',
+                data: 
+                    {
+                        // "id_calon_karyawan": kar, 
+                        "_token": "{{ csrf_token() }}",
+                    },
+                success:function(response){
+                    // if(val != 'rejected'){
+                    //     $(this).find("btn-nilai").prop('disabled',false);
+                    // }else{
+                    //     $(this).find("btn-nilai").prop('disabled',true);
+                    // }
+                    submit = document.getElementById("submit"+kar.value);
+                    // che=document.getElementById(i);
+                    console.log(kar);
+                    submit.disabled = kar.checked ? false:true;
+                    if(!submit.disabled){
+                        submit.focus();
+                    }
+                    alert('data telah diperbarui ! 😍😍😍😍😍');
+                }    
+            });
+        }
     </script>
 @endpush

@@ -78,4 +78,16 @@ class KaryawanController extends Controller
             // return redirect('/home/$ba');
         
     }
+    public function karyawanCheck($id,$val){
+        if($val == 'approved'){
+            $up = DB::table('calon_karyawan')->where('id_calon_karyawan',$id)->update([
+                'approve' => '1'
+            ]);
+        }else{
+            $up = DB::table('calon_karyawan')->where('id_calon_karyawan',$id)->update([
+                'approve' => '0'
+            ]);
+        }
+        
+    }
 }

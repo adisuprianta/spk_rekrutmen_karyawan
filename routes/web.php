@@ -59,6 +59,10 @@ Route::get('/home/{nama}', "KaryawanController@karyawan")->middleware('auth');
 Route::get('/home/karyawan/{id}',"KaryawanController@karyawaninput")->middleware('auth');
 Route::post('/karyawan/input', "KaryawanController@input");
 
+
+//karyawan check
+Route::get('karyawan/check/{id}/{val}',"KaryawanController@karyawanCheck")->middleware('auth');
+
 // memanggil input saw
 // Route::post('/home/produksi', function(){
 //     return view ('inputnilaisaw');
