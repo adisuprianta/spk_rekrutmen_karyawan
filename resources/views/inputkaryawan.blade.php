@@ -85,5 +85,13 @@
 @push('scripts')
     @include('templates.partials._scripts')
     
-    
+    <script >
+        $(function(){
+            $(".datepicker").datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true,
+            });
+        });
+    </script>
 @endpush

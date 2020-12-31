@@ -12,11 +12,31 @@ class KaryawanController extends Controller
     //     return view("karyawanproduksi");
     // }
     public function karyawan($nama){
+        $tglakhir = date('Y-m-d');
+        $tglawal =date('Y-m-d', strtotime('-1 month', strtotime($tglakhir)));
+        // echo $tglakhir;
+        $tangal = array($tglawal,$tglakhir);
+
         $bagian=DB::table('bagian')->where('nama_bagian',$nama)->get();
         foreach($bagian as $p){
-        $calon=DB::table('calon_karyawan')->where('id_bagian',$p->id_bagian)->get();
+            $calon=DB::table('calon_karyawan')->where('id_bagian',$p->id_bagian)
+            ->whereBetween('tanggal_daftar',array($tglawal,$tglakhir))
+            ->get();
         }
-        return view("karyawan",['bagian' => $bagian, 'calon'=>$calon]);
+        // foreach($calon as $c){
+        //     echo $c->id_calon_karyawan;
+        // }
+        // echo $tangal[0];
+        return view("karyawan",['bagian' => $bagian, 'calon'=>$calon,'tgl'=>$tangal]);
+    }
+    public function search(Request $request){
+        $bagian=DB::table('bagian')->where('id_bagian',$request->id_bagian)->get();
+        $calon=DB::table('calon_karyawan')->where('id_bagian',$request->id_bagian)
+            ->whereBetween('tanggal_daftar',array($request->tgl_awal,$request->tgl_akhir))
+            ->get();
+        // echo $request->tgl_awal;
+        $tangal = array($request->tgl_awal,$request->tgl_akhir);
+        return view("karyawan",['bagian' => $bagian, 'calon'=>$calon,'tgl'=>$tangal]);
     }
     // public function panggil(Request $request){
     //     // if(){

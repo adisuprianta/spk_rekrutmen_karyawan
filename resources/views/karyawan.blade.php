@@ -28,37 +28,24 @@
                                 <i class="fa fa-plus"></i>
                                 Tambah Data</a>
                                 @endforeach
-                                <form class="form-inline float-right">
-                                    <!-- <div class="form-group mb-2">
-                                        <label for="staticEmail2" class="sr-only">Email</label>
-                                        <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
-                                    </div> -->
-                                    <div class="form-group mx-sm-3 mb-2">
+
+                            
+                                <form class="form justify-content-end row" method="get" action="/home/{{$p->nama_bagian}}/cari">
+                                {{ csrf_field() }}
+                                <input type="hidden" value="{{$p->id_bagian}}" name="id_bagian">
+                                    <div class="form-group  mb-2 col-md-3">
                                         <!-- <label for="inputPassword2" class="sr-only">Password</label> -->
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <option value="01">Januari</option>
-                                            <option value="02">Februari</option>
-                                            <option value="03">Maret</option>
-                                            <option value="04">April</option>
-                                            <option value="05">Mei</option>
-                                            <option value="06">Juni</option>
-                                            <option value="07">Juli</option>
-                                            <option value="08">Agustus</option>
-                                            <option value="09">September</option>
-                                            <option value="10">Oktober</option>
-                                            <option value="12">November</option>
-                                            <option value="12">Desember</option>
-                                        </select>
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <!-- {{$mulai = date('Y')-50}} -->
-                                            @for($i=2000; $i<=2020; $i++)
-                                                <option value="{{$i}}" >{{$i}}</option>
-                                            @endfor
-                                        </select>
+                                        <input placeholder="Tanggal Awal" type="text" class="form-control datepicker" name="tgl_awal">
                                         
                                     </div>
-                                    <button type="submit" class="btn btn-info mb-2">Serach</button>
+                                    <div class="form-group  mb-2 col-md-3">
+                                        <!-- <label for="inputPassword2" class="sr-only">Password</label> -->
+                                        <input placeholder="Tanggal Akhir" type="text" class="form-control datepicker" name="tgl_akhir">
+                                        
+                                    </div>
+                                    <button type="submit" class="btn btn-info mb-2">Search</button>
                                 </form>
+                            
 
                                 <!-- <a href="#" class="btn btn-info float-right mb-3" data-toggle="modal" data-target="#createModal"> <i class="fa fa-plus"></i>
                                 Tambah Data</a> -->
@@ -152,7 +139,17 @@
                                         
                                         <!-- -->
                                     </tbody>
-                                </table>                                
+                                </table>
+                                                                
+                            </div>
+                            <div class="card-footer">
+                                <form class="form float-right" method="get" action="/home/{{$p->nama_bagian}}/hitung">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" value="{{$tgl[0]}}" name="tgl_awal">
+                                    <input type="hidden" value="{{$tgl[1]}}" name="tgl_akhir">
+                                    <input type="hidden" value="{{$p->id_bagian}}" name="id_bagian">
+                                    <button type="submit" class="btn btn-info btn-hitung mb-2">Hitung</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -165,7 +162,13 @@
 @push('scripts')
     @include('templates.partials._scripts')
     <script type="text/javascript">
-    
+    $(function(){
+            $(".datepicker").datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true,
+            });
+        });
     $(document).ready( function () {
         $('#basic-datatables').DataTable();
     } );
