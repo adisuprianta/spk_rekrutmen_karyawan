@@ -234,25 +234,25 @@ class ControllerSaw extends Controller
             $saw = array();
             for($j=0;$j<count($bobot_teswp);$j++){
                 $saw[0][$j] = $bobot_teswp[$j];
-                echo $saw[0][$j]." _ ";
+                // echo $saw[0][$j]." _ ";
             } 
-            echo " <br>";
+            // echo " <br>";
             for($j=0;$j<count($bobot_tesprak);$j++){
                 $saw[1][$j] = $bobot_tesprak[$j];
-                echo $saw[1][$j]." _ ";
+                // echo $saw[1][$j]." _ ";
             }
-            echo " <br>";
+            // echo " <br>";
             for($j=0;$j<count($nilai_kedisiplinan);$j++){
                 $saw[2][$j] = $nilai_kedisiplinan[$j][0];
                 $id[$j] =  $nilai_kedisiplinan[$j][1];
-                echo $saw[2][$j]." _ ".$id[$j]." __ ";
+                // echo $saw[2][$j]." _ ".$id[$j]." __ ";
             }
-            echo " <br>";
-            echo " <br>";
+            // echo " <br>";
+            // echo " <br>";
             $nilaimax_min = array();
             for($i=0; $i<count($saw); $i++){
                 $nilaimax_min[$i] =max($saw[$i]);
-                echo $nilaimax_min[$i]."<br>"; 
+                // echo $nilaimax_min[$i]."<br>"; 
                 
             }
 
@@ -261,10 +261,10 @@ class ControllerSaw extends Controller
                 for($j=0;$j<count($saw[0]); $j++){
                     
                     $normalisasi[$i][$j] = $saw[$i][$j]/ $nilaimax_min[$i];
-                    echo $normalisasi[$i][$j]." _ ";
+                    // echo $normalisasi[$i][$j]." _ ";
                     
                 }
-                echo "<br>";
+                // echo "<br>";
             }
 
             $bobot = array();
@@ -277,7 +277,7 @@ class ControllerSaw extends Controller
 
             $nilai_bobot = array();
 
-            echo "<br>";echo "<br>";
+            // echo "<br>";echo "<br>";
             for($i=0; $i<count($saw); $i++){
                 for($j=0;$j<count($saw[0]); $j++){
                     $nilai_bobot[$i][$j] = $normalisasi[$i][$j]*$bobot[$i] ;
@@ -287,9 +287,9 @@ class ControllerSaw extends Controller
                             DB::table('bobot_calon_karyawan')->where('id_nilai',$id[$j])->update([
                                 'nilai_bobot_calon_karyawan'=>$nilai_bobot[$i][$j]
                             ]);
-                            echo "update ";
+                            // echo "update ";
                         }else{
-                            echo "input ";
+                            // echo "input ";
                             
                             DB::table('bobot_calon_karyawan')->insert([
                                 'id_nilai'=>$id[$j],
@@ -300,7 +300,7 @@ class ControllerSaw extends Controller
                     }
                     
                 }
-                echo "<br>";
+                // echo "<br>";
             }
             $jumlah_bobot = array();
             for($i=0; $i<count($saw[0]); $i++){
@@ -308,11 +308,11 @@ class ControllerSaw extends Controller
                 for($j=0;$j<count($saw); $j++){
                     $jumlah_bobot[$i] += number_format($nilai_bobot[$j][$i],4);                
                 }
-                echo $jumlah_bobot[$i]." ";
-                echo "<br>";
+                // echo $jumlah_bobot[$i]." ";
+                // echo "<br>";
             }
             $urutkanbobot = array();
-            $id = DB::table('calon_karyawan')->whereBetween('tanggal_daftar',array('2020-12-26','2020-12-29'))
+            $id = DB::table('calon_karyawan')->whereBetween('tanggal_daftar',array($tglawal,$tglakhir))
             ->where('id_bagian','bg0')->get();
             $i=0;
 
@@ -324,9 +324,9 @@ class ControllerSaw extends Controller
                 $urutkanbobot[$i][0]=$id_c->id_calon_karyawan;
                 $urutkanbobot[$i][1] = number_format($jumlah_bobot[$i],4);
                     
-                echo $urutkanbobot[$i][0]." ";
-                echo $urutkanbobot[$i][1]." ";
-                echo "<br>";
+                // echo $urutkanbobot[$i][0]." ";
+                // echo $urutkanbobot[$i][1]." ";
+                // echo "<br>";
                 $i++;
             }
 
@@ -337,8 +337,8 @@ class ControllerSaw extends Controller
             for($i=0; $i<count($saw[0]); $i++){
                 $urt[$i] = number_format($jumlah_bobot[$i],4);
                 
-                echo $urt[$i]." ";
-                echo "<br>";
+                // echo $urt[$i]." ";
+                // echo "<br>";
             }
             
 
@@ -349,19 +349,477 @@ class ControllerSaw extends Controller
                 for($j=0;$j<count($saw[0]); $j++){
                     if($urutkanbobot[$i][1]==$urt[$j]){
                         $urutkanbobot[$i][2] = $j+1;
-                        echo $urutkanbobot[$i][2]." ";
+                        // echo $urutkanbobot[$i][2]." ";
                     }
                 }
                 
-                echo "<br>";
+                // echo "<br>";
             }
-        }else{
+            
+            for($i=0; $i<count($saw[0]); $i++){
+                $a = DB::table('rangking')->where('id_calon_karyawan',$urutkanbobot[$i][0])->get();
+                if(count($a)==1){
+                    DB::table("rangking")->where('id_calon_karyawan',$urutkanbobot[$i][0])->update([
+                        'bobot_akhir'=>$urutkanbobot[$i][1],
+                        'rangking'=>$urutkanbobot[$i][2]
+                    ]);
+                    // echo $urutkanbobot[$i][0]." _ ";
+                    // echo $urutkanbobot[$i][1]." _ ";
+                    // echo $urutkanbobot[$i][2]." _ "; 
+                }else{
+                    DB::table("rangking")->insert([
+                        'id_calon_karyawan'=>$urutkanbobot[$i][0],
+                        'bobot_akhir'=>$urutkanbobot[$i][1],
+                        'rangking'=>$urutkanbobot[$i][2]
+                       ]);
+                    // echo"tidak";
+                }
+                
+                // echo "<br>";
 
+            }
+            $tangal = array($tglawal,$tglakhir);
+
+            $bagian=DB::table('bagian')->where('id_bagian',$id_bagian)->get();
+            foreach($bagian as $p){
+                $calon=DB::table('calon_karyawan')->where('id_bagian',$p->id_bagian)
+                ->whereBetween('tanggal_daftar',array($tglawal,$tglakhir))
+                ->get();
+            }
+            return view("karyawan",['bagian' => $bagian, 'calon'=>$calon,'tgl'=>$tangal]);
+        }else{
+            $bobot_teswan = $con->getteswawancaranon($tglawal,$tglakhir);
+            $bobot_psikotes = $con->getpsikotes($tglawal,$tglakhir);
+            $nilai_kedisiplinannon = $con->kedisipinannon($tglawal,$tglakhir);
+            $nilai_testulis = $con->testulis($tglawal,$tglakhir);
+            $id_tu = array();
+            $id_ked = array();
+            // echo "<br>";
+            $saw = array();
+            for($j=0;$j<count($bobot_teswan);$j++){
+                $saw[0][$j] = $bobot_teswan[$j];
+                // echo $saw[0][$j]." _ ";
+            } 
+            // echo " <br>";
+            for($j=0;$j<count($bobot_psikotes);$j++){
+                $saw[1][$j] = $bobot_psikotes[$j];
+                // echo $saw[1][$j]." _ ";
+            }
+            // echo " <br>";
+            for($j=0;$j<count($nilai_kedisiplinannon);$j++){
+                $saw[2][$j] = $nilai_kedisiplinannon[$j][0];
+                $id_ked[$j] =  $nilai_kedisiplinannon[$j][1];
+                // echo $saw[2][$j]." _ ".$id_ked[$j]." __ ";
+            }
+            // echo "<br>";
+            for($j=0;$j<count($nilai_testulis);$j++){
+                $saw[3][$j] = $nilai_testulis[$j][0];
+                $id_tu[$j] =  $nilai_testulis[$j][1];
+                // echo $saw[3][$j]." _ ".$id_tu[$j]." __ ";
+            }
+            // echo "<br>";
+            $nilaimax_min = array();
+            for($i=0; $i<count($saw); $i++){
+                $nilaimax_min[$i] =max($saw[$i]);
+                // echo $nilaimax_min[$i]."<br>"; 
+                
+            }
+
+
+            $normalisasi = array();
+            for($i=0; $i<count($saw); $i++){
+                for($j=0;$j<count($saw[0]); $j++){
+                    
+                    $normalisasi[$i][$j] = $saw[$i][$j]/ $nilaimax_min[$i];
+                    // echo $normalisasi[$i][$j]." _ ";
+                    
+                }
+                // echo "<br>";
+            }
+
+            $bobot = array();
+            $bob = DB::table('kriteria_ahp')->where('id_bagian','bg1')->get();
+            $i=0;
+            foreach($bob as $a){
+                $bobot[$i] = $a->bobot_kriteria;
+                // echo $bobot[$i]."  ";
+                $i++;
+            }
+
+            $nilai_bobot = array();
+
+            // echo "<br>";echo "<br>";
+            for($i=0; $i<count($saw); $i++){
+                for($j=0;$j<count($saw[0]); $j++){
+                    $nilai_bobot[$i][$j] = $normalisasi[$i][$j]*$bobot[$i] ;
+                    if($i==2){
+                        $cek = DB::table('bobot_calon_karyawan')->where('id_nilai',$id_tu[$j])->get();
+                        if(count($cek) >0){
+                            DB::table('bobot_calon_karyawan')->where('id_nilai',$id_tu[$j])->update([
+                                'nilai_bobot_calon_karyawan'=>$nilai_bobot[$i][$j]
+                            ]);
+                            // echo "update ";
+                        }else{
+                            // echo $nilai_bobot[$i][$j]." ";
+                            
+                            DB::table('bobot_calon_karyawan')->insert([
+                                'id_nilai'=>$id_tu[$j],
+                                'nilai_bobot_calon_karyawan'=>$nilai_bobot[$i][$j]
+                            ]);
+                            
+                        }
+                        // echo $nilai_bobot[$i][$j]." _ ";
+                    }else if($i==3){
+                        echo "<br>";
+                        $cekk = DB::table('bobot_calon_karyawan')->where('id_nilai',$id_ked[$j])->get();
+                        if(count($cekk)>0){
+                            DB::table('bobot_calon_karyawan')->where('id_nilai',$id_ked[$j])->update([
+                                'nilai_bobot_calon_karyawan'=>$nilai_bobot[$i][$j]
+                            ]);
+                            // echo "update ";
+                        }else{
+                            // echo $nilai_bobot[$i][$j]." ";
+                            
+                            DB::table('bobot_calon_karyawan')->insert([
+                                'id_nilai'=>$id_ked[$j],
+                                'nilai_bobot_calon_karyawan'=>$nilai_bobot[$i][$j]
+                            ]);
+                        }
+                    }
+                    
+                }
+                // echo "<br>";
+            }
+
+            $jumlah_bobot = array();
+            for($i=0; $i<count($saw[0]); $i++){
+                $jumlah_bobot[$i] = 0;
+                for($j=0;$j<count($saw); $j++){
+                    $jumlah_bobot[$i] += number_format($nilai_bobot[$j][$i],4);                
+                }
+                // echo $jumlah_bobot[$i]." ";
+                // echo "<br>";
+            }
+            $urutkanbobot = array();
+            $id = DB::table('calon_karyawan')->whereBetween('tanggal_daftar',array($tglawal,$tglakhir))
+            ->where('id_bagian','bg1')->get();
+            $i=0;
+
+
+
+
+    // rangking
+            foreach($id as $id_c){
+                $urutkanbobot[$i][0]=$id_c->id_calon_karyawan;
+                $urutkanbobot[$i][1] = number_format($jumlah_bobot[$i],4);
+                    
+                // echo $urutkanbobot[$i][0]." ";
+                // echo $urutkanbobot[$i][1]." ";
+                // echo "<br>";
+                $i++;
+            }
+
+
+            
+            rsort($jumlah_bobot,SORT_NUMERIC);
+            $urt=array();
+            for($i=0; $i<count($saw[0]); $i++){
+                $urt[$i] = number_format($jumlah_bobot[$i],4);
+                
+                // echo $urt[$i]." ";
+                // echo "<br>";
+            }
+            
+
+            // echo "<br>";
+            // echo "<br>";
+            for($i=0; $i<count($saw[0]); $i++){
+                
+                for($j=0;$j<count($saw[0]); $j++){
+                    if($urutkanbobot[$i][1]==$urt[$j]){
+                        $urutkanbobot[$i][2] = $j+1;
+                        // echo $urutkanbobot[$i][2]." ";
+                    }
+                }
+                
+                // echo "<br>";
+            }
+            
+            for($i=0; $i<count($saw[0]); $i++){
+                $a = DB::table('rangking')->where('id_calon_karyawan',$urutkanbobot[$i][0])->get();
+                if(count($a)==1){
+                    DB::table("rangking")->where('id_calon_karyawan',$urutkanbobot[$i][0])->update([
+                        'bobot_akhir'=>$urutkanbobot[$i][1],
+                        'rangking'=>$urutkanbobot[$i][2]
+                    ]);
+                    // // echo $urutkanbobot[$i][0]." _ ";
+                    // echo $urutkanbobot[$i][1]." _ ";
+                    // echo $urutkanbobot[$i][2]." _ "; 
+                }else{
+                    DB::table("rangking")->insert([
+                        'id_calon_karyawan'=>$urutkanbobot[$i][0],
+                        'bobot_akhir'=>$urutkanbobot[$i][1],
+                        'rangking'=>$urutkanbobot[$i][2]
+                       ]);
+                    // echo"tidak";
+                }
+                
+                // echo "<br>";
+
+            }
+            $tangal = array($tglawal,$tglakhir);
+            
+            $bagian=DB::table('bagian')->where('id_bagian',$id_bagian)->get();
+            foreach($bagian as $p){
+                $calon=DB::table('calon_karyawan')->where('id_bagian',$p->id_bagian)
+                ->whereBetween('tanggal_daftar',array($tglawal,$tglakhir))
+                ->get();
+            }
+            return view("karyawan",['bagian' => $bagian, 'calon'=>$calon,'tgl'=>$tangal]);
         }
+     
+    }
+    public function testulis($awal,$akhir){
+        $k = DB::table('calon_karyawan')->join('nilai_kriteria_calon_karyawan','calon_karyawan.id_calon_karyawan','=',
+            'nilai_kriteria_calon_karyawan.id_calon_karyawan')
+            ->select('calon_karyawan.id_calon_karyawan','nilai_kriteria','id_nilai','approve')
+            ->whereBetween('tanggal_daftar',array($awal,$akhir))
+            ->where('id_bagian','bg1')->where('id_kriteria','kn2')->get();
+            $i = 0;
+            foreach($k as $a){
+                if($a->approve==1){
+                    $nilai_kedisiplinan[$i][0] = $a->nilai_kriteria;
+                    $nilai_kedisiplinan[$i][1] = $a->id_nilai;
+                    // echo $nilai_kedisiplinan[$i][0];
+                    // echo $i;
+                    $i++;
+                    
+                }
+                
+            }
+            return $nilai_kedisiplinan;
+    }
+
+    public function kedisipinannon($awal,$akhir){
+        $k = DB::table('calon_karyawan')->join('nilai_kriteria_calon_karyawan','calon_karyawan.id_calon_karyawan','=',
+            'nilai_kriteria_calon_karyawan.id_calon_karyawan')
+            ->select('calon_karyawan.id_calon_karyawan','nilai_kriteria','id_nilai','approve')
+            ->whereBetween('tanggal_daftar',array($awal,$akhir))
+            ->where('id_bagian','bg1')->where('id_kriteria','kn1')->get();
+        $nilai_kedisiplinan = array();
+        
+        $i = 0;
+            foreach($k as $a){
+                if($a->approve==1){
+                    $nilai_kedisiplinan[$i][0] = $a->nilai_kriteria;
+                    $nilai_kedisiplinan[$i][1] = $a->id_nilai;
+                    // echo $nilai_kedisiplinan[$i][0];
+                    // echo $nilai_kedisiplinan[$i][1];
+                    // echo $i;
+                    $i++;
+                    
+                }
+                
+            }
+            return $nilai_kedisiplinan;
+    }
+    public function getpsikotes($awal,$akhir){
+        $saw = array();
+        $id = array();
+        // teswawancara 
+        for($i=0;$i<=3;$i++){
+            $q =1+$i;
+            $k = DB::table('calon_karyawan')->join('nilai_sub_calon_karyawan_saw','calon_karyawan.id_calon_karyawan','=',
+            'nilai_sub_calon_karyawan_saw.id_calon_karyawan')
+            ->select('calon_karyawan.id_calon_karyawan','nilai_sub_kriteria','id_nilai_sub_kriteria','approve')
+            ->whereBetween('tanggal_daftar',array($awal,$akhir))
+            ->where('id_bagian','bg1')->where('id_sub_kriteria','Ps'.$q)->get();
+            $j = 0;
+            foreach($k  as $a){
+                if($a->approve ==1){
+                $saw[$i][$j]=$a->nilai_sub_kriteria;
+                $id[$i][$j] = $a->id_nilai_sub_kriteria;
+                // echo $id[$i][$j]." ";
+                // echo $saw[$i][$j]." ";
+                $j++;
+                }
+            }
+            // echo " <br>";
+        }
+        $nilaimax_min = array();
+
+        // echo count( $saw);
+        // echo max($saw[0])."<br>";
+        
+        for($i=0; $i<count($saw); $i++){
+            $nilaimax_min[$i] =max($saw[$i]);
+            // echo $nilaimax_min[$i]."<br>"; 
+            
+        }
+
+        $normalisasi = array();
+        for($i=0; $i<count($saw); $i++){
+            for($j=0;$j<count($saw[0]); $j++){
+                
+                $normalisasi[$i][$j] = $saw[$i][$j]/ $nilaimax_min[$i];
+                // echo $normalisasi[$i][$j]." _ ";
+                
+            }
+            // echo "<br>";
+        }
+
+        // bobot
+        $bobot = array();
+        $bob = DB::table('sub_kriteria_ahp')->where('id_kriteria','kn3')->get();
+        $i=0;
+        foreach($bob as $a){
+            $bobot[$i] = $a->bobot_sub_kriteria;
+            $i++;
+        }
+
+        $nilai_bobot = array();
+        // echo " <br>";echo " <br>";echo " <br>";
+        // ini masuk database
+        for($i=0; $i<count($saw); $i++){
+            for($j=0;$j<count($saw[0]); $j++){
+                $nilai_bobot[$i][$j] = $normalisasi[$i][$j]*$bobot[$i] ;
+                    // echo $nilai_bobot[$i][$j]." _ ".$id[$i][$j]."__";
+                    
+                    $cek = DB::table('bobot_sub_calon_karyawan')->where('id_nilai_sub_kriteria',$id[$i][$j])->get();
+                    if(count($cek) >0){
+                        DB::table('bobot_sub_calon_karyawan')->where('id_nilai_sub_kriteria',$id[$i][$j])->update([
+                            'nilai_bobot_sub_kriteria'=>$nilai_bobot[$i][$j]
+                        ]);
+                    }else{
+                        // echo $id[$i][$j]." ";
+                        
+                        DB::table('bobot_sub_calon_karyawan')->insert([
+                            'id_nilai_sub_kriteria'=>$id[$i][$j],
+                            'nilai_bobot_sub_kriteria'=>$nilai_bobot[$i][$j]
+                        ]);
+                    }
+                    // echo count($cek);
+            }
+            // echo "<br>";
+        }
+        // // echo " <br>";echo " <br>";
         
 
 
+        // // echo "<br>";
+        // // echo "<br>";
+        $jumlah_bobot = array();
+        for($i=0; $i<count($saw[0]); $i++){
+            $jumlah_bobot[$i] = 0;
+            for($j=0;$j<count($saw); $j++){
+                $jumlah_bobot[$i] += number_format($nilai_bobot[$j][$i] * 100,2);
+            }
+            // echo $jumlah_bobot[$i]." ";
+            // echo "<br>";
+        }
+        return $jumlah_bobot;
     }
+
+
+    public function getteswawancaranon($awal,$akhir){
+        $saw = array();
+        $id = array();
+        // teswawancara 
+        for($i=0;$i<=3;$i++){
+            $q =1+$i;
+            $k = DB::table('calon_karyawan')->join('nilai_sub_calon_karyawan_saw','calon_karyawan.id_calon_karyawan','=',
+            'nilai_sub_calon_karyawan_saw.id_calon_karyawan')
+            ->select('calon_karyawan.id_calon_karyawan','nilai_sub_kriteria','id_nilai_sub_kriteria','approve')
+            ->whereBetween('tanggal_daftar',array($awal,$akhir))
+            ->where('id_bagian','bg1')->where('id_sub_kriteria','Nw'.$q)->get();
+            $j = 0;
+            foreach($k  as $a){
+                if($a->approve ==1){
+                $saw[$i][$j]=$a->nilai_sub_kriteria;
+                $id[$i][$j] = $a->id_nilai_sub_kriteria;
+                // echo $id[$i][$j]." ";
+                // echo $saw[$i][$j]." ";
+                $j++;
+                }
+            }
+            // echo " <br>";
+        }
+        $nilaimax_min = array();
+
+        // echo count( $saw);
+        // echo max($saw[0])."<br>";
+        
+        for($i=0; $i<count($saw); $i++){
+            $nilaimax_min[$i] =max($saw[$i]);
+            // echo $nilaimax_min[$i]."<br>"; 
+        }
+
+        $normalisasi = array();
+        for($i=0; $i<count($saw); $i++){
+            for($j=0;$j<count($saw[0]); $j++){
+                
+                $normalisasi[$i][$j] = $saw[$i][$j]/ $nilaimax_min[$i];
+                // echo $normalisasi[$i][$j]." _ ";
+                
+            }
+            // echo "<br>";
+        }
+
+        // bobot
+        $bobot = array();
+        $bob = DB::table('sub_kriteria_ahp')->where('id_kriteria','kn3')->get();
+        $i=0;
+        foreach($bob as $a){
+            $bobot[$i] = $a->bobot_sub_kriteria;
+            $i++;
+        }
+
+        $nilai_bobot = array();
+        // echo " <br>";echo " <br>";echo " <br>";
+        // ini masuk database
+        for($i=0; $i<count($saw); $i++){
+            for($j=0;$j<count($saw[0]); $j++){
+                $nilai_bobot[$i][$j] = $normalisasi[$i][$j]*$bobot[$i] ;
+                    // echo $nilai_bobot[$i][$j]." _ ".$id[$i][$j]."__";
+                    
+                    $cek = DB::table('bobot_sub_calon_karyawan')->where('id_nilai_sub_kriteria',$id[$i][$j])->get();
+                    if(count($cek) >0){
+                        DB::table('bobot_sub_calon_karyawan')->where('id_nilai_sub_kriteria',$id[$i][$j])->update([
+                            'nilai_bobot_sub_kriteria'=>$nilai_bobot[$i][$j]
+                        ]);
+                    }else{
+                        // echo $id[$i][$j]." ";
+                        
+                        DB::table('bobot_sub_calon_karyawan')->insert([
+                            'id_nilai_sub_kriteria'=>$id[$i][$j],
+                            'nilai_bobot_sub_kriteria'=>$nilai_bobot[$i][$j]
+                        ]);
+                    }
+                    // echo count($cek);
+            }
+            // echo "<br>";
+        }
+        // // echo " <br>";echo " <br>";
+        
+
+
+        // // echo "<br>";
+        // // echo "<br>";
+        $jumlah_bobot = array();
+        for($i=0; $i<count($saw[0]); $i++){
+            $jumlah_bobot[$i] = 0;
+            for($j=0;$j<count($saw); $j++){
+                $jumlah_bobot[$i] += number_format($nilai_bobot[$j][$i] * 100,2);
+                    
+                
+            }
+            // echo $jumlah_bobot[$i]." ";
+            // echo "<br>";
+        }
+        return $jumlah_bobot;
+    }
+
+
 
     public function getkedisiplinanprok($awal,$akhir){
         $k = DB::table('calon_karyawan')->join('nilai_kriteria_calon_karyawan','calon_karyawan.id_calon_karyawan','=',
@@ -385,7 +843,7 @@ class ControllerSaw extends Controller
             }
             return $nilai_kedisiplinan;
     }
-    
+
     public function gettespraktik($tglawal,$tglakhir){
         $saw = array();
         $id = array();
