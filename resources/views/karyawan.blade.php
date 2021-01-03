@@ -73,7 +73,7 @@
                                     @endphp
                                         @foreach($calon as $s)
                                         <tr>
-                                            <td>{{$c}}</td>
+                                            <td>{{$c++}}</td>
                                             <td>{{$s->Nama_Calon_karyawan}}</td>
                                             <td>{{$s->Pendidikan}}</td>
                                             <td>{{$s->No_Hp}}</td>

@@ -809,7 +809,7 @@ class ControllerSaw extends Controller
         for($i=0; $i<count($saw[0]); $i++){
             $jumlah_bobot[$i] = 0;
             for($j=0;$j<count($saw); $j++){
-                $jumlah_bobot[$i] += number_format($nilai_bobot[$j][$i] * 100,2);
+                $jumlah_bobot[$i] += number_format($nilai_bobot[$j][$i] * 100,4);
                     
                 
             }
