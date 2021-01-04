@@ -39,8 +39,8 @@
                 Rangking
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Produksi</a>
-                <a class="dropdown-item" href="#">Non-Produksi</a>
+                <a class="dropdown-item" href="/home/rangking/produksi">Produksi</a>
+                <a class="dropdown-item" href="/home/rangking/nonproduksi">Non-Produksi</a>
             </div>
 
             @guest

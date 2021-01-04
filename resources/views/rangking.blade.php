@@ -51,6 +51,7 @@
                             </div>
                             <div class="card-body">
                                 <table id="basic-datatables" class="table table-striped table-bordered table-responsive-lg table-responsive-md table-responsive-sm">
+                                    @if($a->nama_bagian=="Produksi")
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -59,11 +60,12 @@
                                             <!-- <th>Jenis Kelamin</th> -->
                                             <th>Tes Wawancara</th>
                                             <th>Tes Praktek</th>
-                                            <th>Total</th>
+                                            <th>Nilai Akhir</th>
                                             <th>Rangking</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    
                                     @php
                                         $c = 1
                                     @endphp
@@ -76,18 +78,56 @@
                                     <tr>
                                         <td>{{$c++}}</td>
                                         <td>{{$a->Nama_Calon_karyawan}}</td>
-                                        <td>{{$a->nilai_bobot_calon_karyawan}}</td>
+                                        <td>{{$a->nilai_kriteria}}</td>
                                         <td>{{$tesw[$i]}}</td>
                                         <td>{{$tespraktik[$i++]}}</td>
+                                        <td>{{$a->bobot_akhir*100}}</td>
+                                        <td>{{$a->rangking}}</td>
+                                        
+                                    </tr>
+                                    @endforeach
+                                    
+                                    </tbody>
+                                    <!-- non -->
+                                    @else
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Calon Karyawan</th>
+                                            <th>Kedisiplinan</th>
+                                            <th>Tes Tulis</th>
+                                            <!-- <th>Jenis Kelamin</th> -->
+                                            <th>Tes Wawancara</th>
+                                            <th>Psikotes</th>
+                                            <th>Total</th>
+                                            <th>Rangking</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                    @php
+                                        $c = 1
+                                    @endphp
+                                    @php
+                                        $i = 0
+                                    @endphp
+                                    @foreach($sql as $a)
+                                    
+                                    <tr>
+                                        <td>{{$c++}}</td>
+                                        <td>{{$a->Nama_Calon_karyawan}}</td>
+                                        <td>{{$a->nilai_kriteria}}</td>
+                                        <td>{{$test[$i]}}</td>
+                                        <td>{{$tesw[$i]}}</td>
+                                        <td>{{$psikotes[$i++]}}</td>
                                         <td>{{$a->bobot_akhir}}</td>
                                         <td>{{$a->rangking}}</td>
                                         
                                     </tr>
                                     @endforeach
-                                    <!--  -->
-                                        
-                                        <!-- -->
+                                    
                                     </tbody>
+                                    @endif
                                 </table>
                                                                 
                             </div>

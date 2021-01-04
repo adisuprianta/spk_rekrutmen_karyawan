@@ -18,7 +18,7 @@
                 @endforeach
             </div>
             <div class="col-md-12">
-                        <div class="card">
+                        <div class="card tes">
                             <div class="card-header">
                                 <!-- <strong class="card-title">Tabel Data Kain</strong> -->
                                 <!-- <a href="#" class="btn btn-info float-left mb-3" data-toggle="modal" data-target="#createModal"> <i class="fa fa-plus"></i>
@@ -58,7 +58,7 @@
                                             <th>Nama Calon Karyawan</th>
                                             <th>Pendidikan</th>
                                             <!-- <th>Jenis Kelamin</th> -->
-                                            <th>No HP</th>
+                                            <th width="100px">No HP</th>
                                             <th>Email</th>
                                             <th>Alamat</th>
                                             <th>Tanggal Lahir</th>
@@ -76,7 +76,7 @@
                                             <td>{{$c++}}</td>
                                             <td>{{$s->Nama_Calon_karyawan}}</td>
                                             <td>{{$s->Pendidikan}}</td>
-                                            <td>{{$s->No_Hp}}</td>
+                                            <td >{{$s->No_Hp}}</td>
                                             <td>{{$s->Email}}</td>
                                             <td>{{$s->Alamat}}</td>
                                             <td>{{$s->Tanggal_Lahir}}</td>
