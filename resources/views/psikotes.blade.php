@@ -5,10 +5,11 @@
 
 
 @section('content')
+@include('templates.partials._sidebar')
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                @include('templates.partials._navbar')
+                
             </div>
         </div>
         <div class="row">
@@ -21,10 +22,10 @@
                     <div class="col-md-6 kriteria-text">
                         <div class="row">
                             <div class="col-md-10 offset-1">
-                                <h3>Tentukan Tingkat Kepentingan Kriteria</h3>
+                                <h3>Tentukan Tingkat Kepentingan Sub Kriteria</h3>
                                 <p>
                                     Untuk Menentukan Tingkat Kepentingan kamu dapat 
-                                    mengisi masing - masing kriteria dengan nilai sebagai  berikut : 
+                                    mengisi masing - masing sub kriteria dengan nilai sebagai  berikut : 
                                 </p>
                                 <ul>
                                         <li>1 - 3 = Cukup Penting</li>
@@ -41,12 +42,17 @@
                                     <label for="inputPassword" class="col-md-4 col-form-label produksi-label">Kepribadian</label>
                                     <div class="col-md-6">
                                      <select class="form-control" id="pilihbagian" name="kepribadian" >
-                                        @for($nilai=1;$nilai< 10;$nilai++)
-                                        @if($nilai==2)
-                                            <option value="{{$nilai}}" selected ="selected" >{{$nilai}}</option>
-                                        @endif
-                                            <option value="{{$nilai}}" >{{$nilai}}</option>
-                                        @endfor
+                                     @foreach($kriteria as $a)
+                                            @for($nilai=0;$nilai< 10;$nilai++)
+                                            @if($a->id_sub_kriteria == 'Ps1')
+                                                    @if($a->nilai_perbandingan_sub_kriteria==$nilai && $a->id_sub_kriteria == 'Ps1')
+                                                        <option value="{{$nilai}}" selected ="selected" >{{$nilai}}</option>
+                                                    @else
+                                                        <option value="{{$nilai}}" >{{$nilai}}</option>
+                                                    @endif
+                                                @endif
+                                            @endfor
+                                        @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-2 button">
@@ -57,9 +63,17 @@
                                     <label for="staticEmail" class="col-md-4 col-form-label produksi-label">Moral</label>
                                     <div class="col-md-6">
                                         <select class="form-control" id="pilihbagian" name="moral">
-                                            @for($nilai=1;$nilai< 10;$nilai++)
-                                            <option value="{{$nilai}}">{{$nilai}}</option>
+                                        @foreach($kriteria as $a)
+                                            @for($nilai=0;$nilai< 10;$nilai++)
+                                            @if($a->id_sub_kriteria == 'Ps2')
+                                                    @if($a->nilai_perbandingan_sub_kriteria==$nilai && $a->id_sub_kriteria == 'Ps2')
+                                                        <option value="{{$nilai}}" selected ="selected" >{{$nilai}}</option>
+                                                    @else
+                                                        <option value="{{$nilai}}" >{{$nilai}}</option>
+                                                    @endif
+                                                @endif
                                             @endfor
+                                        @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-2 button">
@@ -70,9 +84,17 @@
                                     <label for="inputPassword" class="col-md-4 col-form-label produksi-label">Kepemimpinan</label>
                                     <div class="col-md-6">
                                      <select class="form-control" id="pilihbagian" name="kepemimpinan">
-                                            <@for($nilai=1;$nilai< 10;$nilai++)
-                                                <option value="{{$nilai}}">{{$nilai}}</option>
+                                     @foreach($kriteria as $a)
+                                            @for($nilai=0;$nilai< 10;$nilai++)
+                                            @if($a->id_sub_kriteria == 'Ps3')
+                                                    @if($a->nilai_perbandingan_sub_kriteria==$nilai && $a->id_sub_kriteria == 'Ps3')
+                                                        <option value="{{$nilai}}" selected ="selected" >{{$nilai}}</option>
+                                                    @else
+                                                        <option value="{{$nilai}}" >{{$nilai}}</option>
+                                                    @endif
+                                                @endif
                                             @endfor
+                                        @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-2 button">

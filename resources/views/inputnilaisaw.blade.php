@@ -5,11 +5,10 @@
 
 
 @section('content')
+@include('templates.partials._sidebar')
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                @include('templates.partials._navbar')
-            </div>
+        
             <div class="col-md-8 offset-2 keterangansaw">
                 @foreach($karyawan as $k)
                 <h2>Nilai {{$k->Nama_Calon_karyawan}}</h2>

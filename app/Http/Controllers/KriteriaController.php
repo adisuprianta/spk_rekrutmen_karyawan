@@ -28,10 +28,19 @@ class KriteriaController extends Controller
 
     //memanggil halaman kriteria produksi dan non produksi
     public function produksi(){
-        return view('kriteriaproduksi');
+        $a = DB::table('kriteria_ahp')->where('id_bagian','bg0')->get();
+        // foreach($a as $aa){
+        //     if($aa->id_kriteria=='kn1'&&$aa->Nilai_perbandingan_kriteria==0){
+        //         echo $aa->id_kriteria;
+        //     }   
+            
+
+        // }
+        return view('kriteriaproduksi',['kriteria'=>$a]);
     }
     public function nonproduksi(){
-        return view('kriterianonproduksi');
+        $a = DB::table('kriteria_ahp')->where('id_bagian','bg1')->get();
+        return view('kriterianonproduksi',['kriteria'=>$a]);
     }
 
 

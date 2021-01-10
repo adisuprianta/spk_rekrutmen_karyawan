@@ -14,7 +14,9 @@
 
     <!-- styles -->
     <link rel="stylesheet" href="{{asset('dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('dist/css/bootstrap-datepicker.min.css')}}">
     @stack('style')

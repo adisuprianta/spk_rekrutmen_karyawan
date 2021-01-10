@@ -4,14 +4,15 @@
 @endpush
 
 @section('content')
+@include('templates.partials._sidebar')
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                @include('templates.partials._navbar')
+                
             </div>
         </div>
         <!-- home -->
-        <div class="row home">
+		<div class="row home">
             <div class="col-md-10 offset-1 content-home">
                 <div class="row">
                     <div class="col-md-5">
@@ -30,7 +31,19 @@ Informasi mengenenai calon karyawan yang mendaftar pada periode ____ dapat dilih
             
         </div>
         <!-- grafik -->
-        
+        <h3 class="judul-grafik">GRAFIK INFORMASI CALON KARYAWAN</h3>
+        <div class="row grafik">
+            <div class="col-md-4">
+                <!-- <canvas id="calon_karyawan"></canvas> -->
+            </div>
+            <div class="col-md-4">
+                <canvas id="calon_karyawan"></canvas>
+            </div>
+            <div class="col-md-4">
+                <!-- <canvas id="calon_karyawan"></canvas> -->
+            </div>
+        </div>
+    </div>
     
     
 

@@ -4,10 +4,11 @@
 @endpush
 
 @section('content')
+@include('templates.partials._sidebar')
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                @include('templates.partials._navbar')
+               
             </div>
         </div>
         <!-- home -->
@@ -18,11 +19,7 @@
                         <img src="{{asset('assets/image/logo-kriteria.png')}}" alt="" height="350">
                     </div>
                     <div class="col-md-4">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Natus perferendis praesentium mollitia sunt porro accusamus 
-                            rerum expedita iusto error, 
-                            voluptatem beatae minima iste, possimus fugiat 
-                            ad sit ab vel quaerat et enim quidem ipsa laborum voluptatibus! Eius quam consequuntur error?</p>
+                        <p>Untuk menginputkan kriteria calon karyawan, maka HRD harus memilih terlebih dahulu departemen bagian yang terdapat 2(dua) bagian yaitu bagian produksi dan bagian non produksi. Dimana masing-masing mempunyai kriteria yang unik dan beberapa tidak sama.</p>
                         <hr size="4px" color="#fff" width="100%" align="center">
                         <div class="bagian">
                             <h4>Pilih Departemen Bagian</h4>

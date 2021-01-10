@@ -14,13 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+// Route::get('/home', function () {
+//     return view('welcome');
+// });
 //halaman kriteria
 Route::get('/kriteria', "KriteriaController@index")->middleware('auth');
 Route::post('/kriteria', "KriteriaController@panggil")->middleware('auth');

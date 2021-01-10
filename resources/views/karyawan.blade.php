@@ -5,12 +5,13 @@
 
 
 @section('content')
+@include('templates.partials._sidebar')
     <div class="container">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12">
-                @include('templates.partials._navbar')
+               
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col-md-12 judul">
                 @foreach($bagian as $p)
@@ -80,7 +81,7 @@
                                             <td>{{$s->Email}}</td>
                                             <td>{{$s->Alamat}}</td>
                                             <td>{{$s->Tanggal_Lahir}}</td>
-                                            <td><a href="{{ url('/data_file/'.$s->nama_berkas) }}">
+                                            <td><a href="{{ url('/berkas_file/'.$s->nama_berkas) }}">
                                                 {{$s->nama_berkas}}
                                                 </a>
                                             </td>

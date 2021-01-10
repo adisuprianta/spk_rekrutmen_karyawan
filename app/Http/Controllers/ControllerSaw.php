@@ -313,7 +313,7 @@ class ControllerSaw extends Controller
             }
             $urutkanbobot = array();
             $id = DB::table('calon_karyawan')->whereBetween('tanggal_daftar',array($tglawal,$tglakhir))
-            ->where('id_bagian','bg0')->get();
+            ->where('id_bagian','bg0')->where('approve','1')->get();
             $i=0;
 
 
@@ -584,7 +584,7 @@ class ControllerSaw extends Controller
             'nilai_kriteria_calon_karyawan.id_calon_karyawan')
             ->select('calon_karyawan.id_calon_karyawan','nilai_kriteria','id_nilai','approve')
             ->whereBetween('tanggal_daftar',array($awal,$akhir))
-            ->where('id_bagian','bg1')->where('id_kriteria','kn2')->get();
+            ->where('id_bagian','bg1')->where('id_kriteria','kn2')->where('approve','1')->get();
             $i = 0;
             foreach($k as $a){
                 if($a->approve==1){
@@ -605,7 +605,7 @@ class ControllerSaw extends Controller
             'nilai_kriteria_calon_karyawan.id_calon_karyawan')
             ->select('calon_karyawan.id_calon_karyawan','nilai_kriteria','id_nilai','approve')
             ->whereBetween('tanggal_daftar',array($awal,$akhir))
-            ->where('id_bagian','bg1')->where('id_kriteria','kn1')->get();
+            ->where('id_bagian','bg1')->where('id_kriteria','kn1')->where('approve','1')->get();
         $nilai_kedisiplinan = array();
         
         $i = 0;
@@ -633,7 +633,7 @@ class ControllerSaw extends Controller
             'nilai_sub_calon_karyawan_saw.id_calon_karyawan')
             ->select('calon_karyawan.id_calon_karyawan','nilai_sub_kriteria','id_nilai_sub_kriteria','approve')
             ->whereBetween('tanggal_daftar',array($awal,$akhir))
-            ->where('id_bagian','bg1')->where('id_sub_kriteria','Ps'.$q)->get();
+            ->where('id_bagian','bg1')->where('id_sub_kriteria','Ps'.$q)->where('approve','1')->get();
             $j = 0;
             foreach($k  as $a){
                 if($a->approve ==1){
@@ -731,7 +731,7 @@ class ControllerSaw extends Controller
             'nilai_sub_calon_karyawan_saw.id_calon_karyawan')
             ->select('calon_karyawan.id_calon_karyawan','nilai_sub_kriteria','id_nilai_sub_kriteria','approve')
             ->whereBetween('tanggal_daftar',array($awal,$akhir))
-            ->where('id_bagian','bg1')->where('id_sub_kriteria','Nw'.$q)->get();
+            ->where('id_bagian','bg1')->where('id_sub_kriteria','Nw'.$q)->where('approve','1')->get();
             $j = 0;
             foreach($k  as $a){
                 if($a->approve ==1){
@@ -826,7 +826,7 @@ class ControllerSaw extends Controller
             'nilai_kriteria_calon_karyawan.id_calon_karyawan')
             ->select('calon_karyawan.id_calon_karyawan','nilai_kriteria','id_nilai','approve')
             ->whereBetween('tanggal_daftar',array($awal,$akhir))
-            ->where('id_bagian','bg0')->where('id_kriteria','kp1')->get();
+            ->where('id_bagian','bg0')->where('id_kriteria','kp1')->where('approve','1')->get();
         $nilai_kedisiplinan = array();
         
         $i = 0;
@@ -854,7 +854,7 @@ class ControllerSaw extends Controller
             'nilai_sub_calon_karyawan_saw.id_calon_karyawan')
             ->select('calon_karyawan.id_calon_karyawan','nilai_sub_kriteria','id_nilai_sub_kriteria','approve')
             ->whereBetween('tanggal_daftar',array($tglawal,$tglakhir))
-            ->where('id_bagian','bg0')->where('id_sub_kriteria','Tp'.$q)->get();
+            ->where('id_bagian','bg0')->where('id_sub_kriteria','Tp'.$q)->where('approve','1')->get();
             $j = 0;
             foreach($k  as $a){
                 if($a->approve==1){
@@ -938,7 +938,7 @@ class ControllerSaw extends Controller
             'nilai_sub_calon_karyawan_saw.id_calon_karyawan')
             ->select('calon_karyawan.id_calon_karyawan','nilai_sub_kriteria','id_nilai_sub_kriteria','approve')
             ->whereBetween('tanggal_daftar',array($tglawal,$tglakhir))
-            ->where('id_bagian','bg0')->where('id_sub_kriteria','Tw'.$q)->get();
+            ->where('id_bagian','bg0')->where('id_sub_kriteria','Tw'.$q)->where('approve','1')->get();
             $j = 0;
             foreach($k  as $a){
                 if($a->approve ==1){

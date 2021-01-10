@@ -5,10 +5,11 @@
 
 
 @section('content')
+@include('templates.partials._sidebar')
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                @include('templates.partials._navbar')
+                
             </div>
         </div>
         <div class="row">

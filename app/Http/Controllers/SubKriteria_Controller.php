@@ -10,22 +10,29 @@ class SubKriteria_Controller extends Controller
     //manggil halaman sub kriteria
     //memangil halaman tespraktik
     public function tespraktik(){
-        return view('tespraktik');
+        $a = DB::table('sub_kriteria_ahp')->where('id_kriteria' ,'kp2')->get();
+        return view('tespraktik',['kriteria'=>$a]);
     }
     
     //memangil halaman teswawancaraproduksi
     public function teswawancarap(){
-        return view('teswawancaraproduksi');
+        $a = DB::table('sub_kriteria_ahp')->where('id_kriteria' ,'kp3')->get();
+        return view('teswawancaraproduksi',['kriteria'=>$a]);
     }
 
     //memangil halaman teswawancaraproduksi
     public function psikotes(){
-        return view('psikotes');
+        $a = DB::table('sub_kriteria_ahp')->where('id_kriteria' ,'kn4')->get();
+        return view('psikotes',['kriteria'=>$a]);
     }
 
     //memanggil halaman tes wawancara non produksi
     public function wawancaran(){
-        return view('teswawancaranonproduksi');
+        $a = DB::table('sub_kriteria_ahp')->where('id_kriteria' ,'kn3')->get();
+        // foreach ($a as $s){
+        //     echo $s->id_sub_kriteria;
+        // }
+        return view('teswawancaranonproduksi',['kriteria'=>$a]);
     }
     //hitung sub kriteria
 

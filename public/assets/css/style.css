@@ -10,10 +10,6 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.navbar {
-  margin-top: 1em;
-}
-
 .navbar .navbar-brand .image img {
   height: 65px;
   width: 65px;
