@@ -50,7 +50,10 @@ class KriteriaController extends Controller
         $tesw=(Double) $request->tes_praktek;
         $tesc=(Double) $request->tes_wawancara;
         
-
+        if($ke==0 || $tesw==0 ||$tesc == 0){
+            Session::flash('gagal','Gagal menghitung produksi, tidak boleh ada nilai nol');
+            return  redirect('/kriteria/produksi');
+        }else{
         $k=array(                   //k1    //k2   //k3
                                 array(1,          $ke/$tesw , $ke/$tesc),	        //K1								
                                 array($tesw/$ke,    1, $tesw/$tesc),	//K2					                           
@@ -105,6 +108,7 @@ class KriteriaController extends Controller
         ]);
         Session::flash('sukses','Berhasil menghitung bobot kriteria produksi');
         return  redirect('/kriteria/produksi');
+        }
         
     }
 
@@ -116,7 +120,10 @@ class KriteriaController extends Controller
         $waw=$request->Tes_wawancara;
         $psi=$request->Psikotes;
         
-    
+        if($ke==0 || $telis==0 ||$waw == 0 || $psi == 0){
+            Session::flash('gagal','Gagal menghitung nonproduksi, tidak boleh ada nilai nol');
+            return  redirect('/kriteria/nonproduksi');
+        }else{
         $k=array(                   //k1            //k2            //k3            //4     
                                 array(1,            $ke/$tulis,     $ke/$waw,      $ke/$psi),	        //K1								
                                 array($tulis/$ke,    1,              $tulis/$waw,     $tulis/$psi),	//K2					                           
@@ -184,7 +191,7 @@ class KriteriaController extends Controller
         return  redirect('/kriteria/nonproduksi');
         
         // return $bobot[0];
-            
+        }
         }
 
         

@@ -42,7 +42,10 @@ class SubKriteria_Controller extends Controller
             $kre = $request->kriativitas;
             $ket=$request->ketrampilan;
             
-        
+            if($ker==0 || $kre==0 ||$ket == 0){
+                Session::flash('gagal','Gagal menghitung sub kriteria tes praktik, tidak boleh ada nilai nol');
+                return  redirect('/kriteria/produksi');
+            }else{
             $k=array(                   //k1            //k2            //k3            //4     
                                     array(1,            $ker/$kre,     $ker/$ket),	        //K1								
                                     array($kre/$ker,    1,              $kre/$ket),	//K2					                           
@@ -101,6 +104,7 @@ class SubKriteria_Controller extends Controller
             ]);
             Session::flash('sukses','Berhasil menghitung bobot sub kriteria tes praktik');
             return  redirect('/kriteria/produksi');
+            }
         }
 
         //tes wawancaara produksi
@@ -110,7 +114,10 @@ class SubKriteria_Controller extends Controller
             $kom=$request->komunikasi;
             $att=$request->attitude;
             
-        
+            if($kar==0 || $mapk==0 ||$kom == 0 || $att==0){
+                Session::flash('gagal','Gagal menghitung sub kriteria tes wawancara, tidak boleh ada nilai nol');
+                return  redirect('/kriteria/produksi');
+            }else{
             $k=array(                   //k1            //k2            //k3            //4     
                                     array(1,            $kar/$mapk,     $kar/$kom,       $kar/$att),	        //K1								
                                     array($mapk/$kar,    1,              $mapk/$kom,      $mapk/$att),	//K2					                           
@@ -174,7 +181,7 @@ class SubKriteria_Controller extends Controller
             ]);
             Session::flash('sukses','Berhasil menghitung bobot sub kriteria tes wawancara');
             return  redirect('/kriteria/produksi');
-
+            }
             // return $bobot[1]." ".$mapk;
         }
 
@@ -185,7 +192,10 @@ class SubKriteria_Controller extends Controller
             $moral = $request->moral;
             $kepem=$request->kepemimpinan;
             
-        
+            if($kep==0 || $moral==0 ||$kepem == 0 ){
+                Session::flash('gagal','Gagal menghitung sub kriteria psikotes, tidak boleh ada nilai nol');
+                return  redirect('/kriteria/nonproduksi');
+            }else{
             $k=array(                   //k1            //k2            //k3            //4     
                                     array(1,            $kep/$moral,     $kep/$kepem),	        //K1								
                                     array($moral/$kep,    1,              $moral/$kepem),	//K2					                           
@@ -244,6 +254,7 @@ class SubKriteria_Controller extends Controller
             ]);
             Session::flash('sukses','Berhasil menghitung bobot sub kriteria psikotes');
             return  redirect('/kriteria/nonproduksi');
+            }
         }
 
         //wawancaranonproduksi
@@ -253,7 +264,10 @@ class SubKriteria_Controller extends Controller
             $kom=$request->komunikasi;
             $att=$request->attitude;
             
-        
+            if($kar==0 || $mapk==0 ||$kom == 0 || $att==0){
+                Session::flash('gagal','Gagal menghitung sub kriteria tes wawancara, tidak boleh ada nilai nol');
+                return  redirect('/kriteria/nonproduksi');
+            }else{
             $k=array(                   //k1            //k2            //k3            //4     
                                     array(1,            $kar/$mapk,     $kar/$kom,       $kar/$att),	        //K1								
                                     array($mapk/$kar,    1,              $mapk/$kom,      $mapk/$att),	//K2					                           
@@ -282,7 +296,7 @@ class SubKriteria_Controller extends Controller
                 }
             }
             // return $normalisi[0][1];
-            
+                
             // menjumlahkan
             $jn=array();
             for($i=0;$i<count($jumlah);$i++){
@@ -317,7 +331,7 @@ class SubKriteria_Controller extends Controller
             ]);
             Session::flash('sukses','Berhasil menghitung bobot sub kriteria tes wawancara');
             return  redirect('/kriteria/nonproduksi');
-
+            }
             // return $bobot[1]." ".$mapk;
         }
 }
