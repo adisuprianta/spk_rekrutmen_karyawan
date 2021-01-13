@@ -120,7 +120,7 @@ class KriteriaController extends Controller
         $waw=$request->Tes_wawancara;
         $psi=$request->Psikotes;
         
-        if($ke==0 || $telis==0 ||$waw == 0 || $psi == 0){
+        if($ke==0 || $tulis==0 ||$waw == 0 || $psi == 0){
             Session::flash('gagal','Gagal menghitung nonproduksi, tidak boleh ada nilai nol');
             return  redirect('/kriteria/nonproduksi');
         }else{

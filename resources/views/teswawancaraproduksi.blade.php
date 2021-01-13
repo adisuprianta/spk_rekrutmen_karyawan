@@ -127,7 +127,7 @@
                                     </div>
                                 </div>
                                 
-                                <button type="sumbit" class="btn btn-primary" name="sumbit">Sumbit</button>
+                                <button type="sumbit" class="btn btn-primary" name="sumbit">Submit</button>
                             </form>
                         </div>
                     </div>

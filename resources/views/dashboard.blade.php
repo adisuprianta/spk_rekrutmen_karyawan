@@ -19,9 +19,7 @@
                         <p>
 Aplikasi perekrutan calon karyawan ini digunakan untuk menentukan calon karyawan terbaik melalui ranking calon karyawan yang dapat dilihat setelah melakukan perhitungan metode Analytical Hierarchy Process (AHP) dan metode Simple Additive Weighting (SAW).
 
-PT. SASMITA ABADI GLOVES merekrut calon karyawan sekitar 10-15 orang setiap kali merekrut, proses perekrutan ini dilakukan 2-3 kali dalam satu tahun.
-
-Informasi mengenenai calon karyawan yang mendaftar pada periode ____ dapat dilihat melalui diagram di bawah ini. </p>
+PT. SASMITA ABADI GLOVES merekrut calon karyawan sekitar 10-15 orang setiap kali merekrut, proses perekrutan ini dilakukan 2-3 kali dalam satu tahun. </p>
                     </div>
                     <div class="col-md-6 image">
                         <img src="{{asset('assets/image/home-logo.png')}}" alt="" height="240">
@@ -33,15 +31,64 @@ Informasi mengenenai calon karyawan yang mendaftar pada periode ____ dapat dilih
         <!-- grafik -->
         <h3 class="judul-grafik">GRAFIK INFORMASI CALON KARYAWAN</h3>
         <div class="row grafik">
-            <div class="col-md-4">
-                <!-- <canvas id="calon_karyawan"></canvas> -->
+        <div class="col-md-10 offset-1">
+            <div class="row">
+                <div class="col-sm-8 col-lg-4">
+                    <div class="card text-white bg-flat-color-3">
+                        <div class="card-body pb-0">
+                            <h4 class="mb-0 text-light">
+                            {{$total->count('id_calon_karyawan')}}
+                            </h4>
+                            <p class="text-light">Total Calon Karyawan yang Mendaftar</p>
+
+                        </div>
+                        <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                            <canvas id="widgetChart3"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-lg-4">
+                    <div class="card text-white bg-flat-color-1">
+                        <div class="card-body pb-0">
+                            <h4 class="mb-0 text-light">
+                            {{$acc->count('id_calon_karyawan')}}
+                            </h4>
+                            <p class="text-light">Calon Karyawan Yang Di ACC</p>
+
+                            <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                                <canvas id="widgetChart1"></canvas>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--/.col-->
+
+                <div class="col-sm-8 col-lg-4">
+                    <div class="card text-white bg-flat-color-2">
+                        <div class="card-body pb-0">
+                            <h4 class="mb-0 text-light">
+                            {{$tolak->count('id_calon_karyawan')}}
+                            </h4>
+                            <p class="text-light">Calon Karyawan Di Tolak</p>
+                            <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                                <canvas id="widgetChart2"></canvas>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--/.col-->
+
+                
             </div>
-            <div class="col-md-4">
-                <canvas id="calon_karyawan"></canvas>
-            </div>
-            <div class="col-md-4">
-                <!-- <canvas id="calon_karyawan"></canvas> -->
-            </div>
+        </div>
+        
+            
+            <!--/.col-->
+
+            
         </div>
     </div>
     

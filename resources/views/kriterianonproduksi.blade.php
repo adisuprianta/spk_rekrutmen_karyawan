@@ -146,7 +146,7 @@
                                     </div>
                                 </div>
                                 
-                                <button type="Sumbit" class="btn btn-primary">Sumbit</button>
+                                <button type="Sumbit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
                     </div>

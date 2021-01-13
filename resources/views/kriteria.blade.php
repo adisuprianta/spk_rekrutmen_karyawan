@@ -34,7 +34,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-4">
-                                        <button type="submit" class="btn btn-primary" >Isi Kreteria</button>
+                                        <button type="submit" class="btn btn-primary" >Isi Kriteria</button>
                                     </div>
                                 </div>
                                 

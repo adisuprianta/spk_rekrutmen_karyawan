@@ -25,7 +25,16 @@ class ControllerSaw extends Controller
                 $sub_kriteria[$i] = $a->nilai_sub_kriteria;
                 $i++;
             }
-            return view('inputnilaisaw',['karyawan' => $karyawan,'ka'=>$kriteria,'s'=>$sub_kriteria]);
+            if(count($k)==0){
+                $a = array();
+                $a[0] = 0;
+                return view('inputnilaisaw',['karyawan' => $karyawan,'cek'=>$a]);
+            }else{
+                $a = array();
+                $a[0] = 1;
+                return view('inputnilaisaw',['karyawan' => $karyawan,'cek'=>$a,'ka'=>$kriteria,'s'=>$sub_kriteria]);
+            }
+            
         }else{
             $k = DB::table('nilai_kriteria_calon_karyawan')->where('id_calon_karyawan',$id)->get();
             $s = DB::table('nilai_sub_calon_karyawan_saw')->where('id_calon_karyawan',$id)->get();
@@ -41,7 +50,16 @@ class ControllerSaw extends Controller
                 $sub_kriteria[$i] = $a->nilai_sub_kriteria;
                 $i++;
             }
-            return view('inputnilaisaw',['karyawan' => $karyawan,'ka'=>$kriteria,'s'=>$sub_kriteria]);
+            if(count($k)==0){
+                $a = array();
+                $a[0] = 0;
+                return view('inputnilaisaw',['karyawan' => $karyawan,'cek'=>$a]);
+            }else{
+                $a = array();
+                $a[0] = 1;
+                return view('inputnilaisaw',['karyawan' => $karyawan,'cek'=>$a,'ka'=>$kriteria,'s'=>$sub_kriteria]);
+            }
+            
         }
         // return $karyawan;
     }
