@@ -50,8 +50,8 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/home/produksi">Produksi</a>
-                                    <a class="nav-link" href="/home/nonproduksi">Nonproduksi</a>
+                                    <a class="nav-link" href="/home/Produksi">Produksi</a>
+                                    <a class="nav-link" href="/home/NonProduksi">Nonproduksi</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

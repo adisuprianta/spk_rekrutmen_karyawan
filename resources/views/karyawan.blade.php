@@ -14,6 +14,27 @@
         </div> -->
         <div class="row">
             <div class="col-md-12 judul">
+                @if ($message = Session::get('sukses'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
+
+                @if ($message = Session::get('gagal'))
+                <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
+
+                @if ($message = Session::get('peringatan'))
+                <div class="alert alert-warning alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
+
                 @foreach($bagian as $p)
                 <H1>CALON KARYAWAN {{$p->nama_bagian}}</H1>
                 @endforeach
@@ -97,7 +118,7 @@
                                                 <!-- <a class="btn btn-success btn-sm " id="edit" href="" data-nama="" data-desc="" href="#">
                                                     Hitung
                                                 </a> -->
-                                                <form action="{{$p->nama_bagian}}/{{$s->id_calon_karyawan}}" method="post">
+                                                <form action="/home/{{$p->nama_bagian}}/{{$s->id_calon_karyawan}}" method="post">
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="id_karyawan" value="{{$s->id_calon_karyawan}}"/>
                                                 <button class="btn btn-success btn-sm btn-nilai" id="submit{{$s->id_calon_karyawan}}" data-nama="" data-desc="" disabled="disabled">
@@ -121,7 +142,7 @@
                                                 <!-- <a class="btn btn-success btn-sm " id="edit" href="" data-nama="" data-desc="" href="#">
                                                     Hitung
                                                 </a> -->
-                                                <form action="{{$p->nama_bagian}}/{{$s->id_calon_karyawan}}" method="post">
+                                                <form action="/home/{{$p->nama_bagian}}/{{$s->id_calon_karyawan}}" method="post">
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="id_karyawan" value="{{$s->id_calon_karyawan}}"/>
                                                     <button class="btn btn-success btn-sm btn-nilai " id="submit{{$s->id_calon_karyawan}}" data-nama="" data-desc="">
