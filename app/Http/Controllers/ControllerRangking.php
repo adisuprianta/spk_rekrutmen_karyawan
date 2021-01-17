@@ -32,9 +32,13 @@ class ControllerRangking extends Controller
 
             
             // ->groupBy('c.id_calon_karyawan')
-            
+            $bagian = array();
+            $bagian[0] = 'Produksi';
+            $kosong = 1;
             if(count($sql) ==0){
-                echo 'aa';
+                // return  redirect('/home');
+                $kosong = 0;
+                return view('rangking',['a'=>$bagian,'kosong'=>$kosong]);
             }else{
                 $k = array();
                 for($i=0;$i<4;$i++){
@@ -104,11 +108,11 @@ class ControllerRangking extends Controller
                     // echo $k[$i][0];
                     // echo "<br>";
                 }
-                foreach($sql as $a){
-                    // echo $a->Nama_Calon_karyawan. " ".$a->nilai_bobot_calon_karyawan;
-                    return  redirect('/home');
-                }
-                return view('rangking',['sql'=>$sql,'tesw'=>$kedisiplinan,'tespraktik'=>$tespraktik]);
+                // foreach($sql as $a){
+                //     echo $a->Nama_Calon_karyawan. " ".$a->nilai_bobot_calon_karyawan;
+                //     // return  redirect('/home');
+                // }
+                return view('rangking',['sql'=>$sql,'tesw'=>$kedisiplinan,'tespraktik'=>$tespraktik,'a'=>$bagian,'kosong'=>$kosong]);
             }
             
         }else{
@@ -135,9 +139,13 @@ class ControllerRangking extends Controller
             // ->groupBy('c.Nama_calon_karyawan','b.nilai_bobot_calon_karyawan','bobot_akhir','rangking','nama_bagian' )
             ->get();
             
+            $bagian = array();
+            $bagian[0] = 'NonProduksi';
+            $kosong = 1;
             if(count($sql) == 0){
                 // echo 'aa';
-                return  redirect('/home');
+                $kosong = 0;
+                return view('rangking',['sql'=>$sql,'a'=>$bagian,'kosong'=>$kosong]);
             }else{
                 
 
@@ -214,7 +222,7 @@ class ControllerRangking extends Controller
                     // echo $k[$i][0];
                     // echo "<br>";
                 }
-                return view('rangking',['sql'=>$sql,'tesw'=>$teswawancara,'test'=>$testulis,'psikotes'=>$psikotes]);
+                return view('rangking',['sql'=>$sql,'tesw'=>$teswawancara,'test'=>$testulis,'psikotes'=>$psikotes,'a'=>$bagian,'kosong'=>$kosong]);
             }
             
         }
