@@ -247,4 +247,12 @@ body {
 .bg-flat-color-3 {
   background-color: #3131f3;
 }
+
+.pdf tr td {
+  font-size: 30px;
+}
+
+.pdf tr th {
+  font-size: 30px;
+}
 /*# sourceMappingURL=style.css.map */

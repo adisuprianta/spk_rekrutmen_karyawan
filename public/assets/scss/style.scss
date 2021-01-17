@@ -258,3 +258,13 @@ body{background-color: $primarycolor;
 .bg-flat-color-3{
     background-color: rgb(49, 49, 243);
 }
+.pdf{
+    tr{
+        td{
+            font-size: 30px;
+        }
+        th{
+            font-size: 30px;
+        }
+    }
+}
