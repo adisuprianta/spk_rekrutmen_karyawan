@@ -21,7 +21,7 @@
             <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                            <a href="/home/pdf/produksi" class="btn btn-info float-left active mb-3" role="button" aria-pressed="true"> 
+                            <a href="/home/pdf/{{$a[0]}}" class="btn btn-info float-left active mb-3" role="button" aria-pressed="true"> 
                                 
                                 Cetak Pdf</a>
                                 <form class="form justify-content-end row" method="get" action="">

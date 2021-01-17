@@ -10,7 +10,7 @@ class ControllerPdf extends Controller
     public function cetak_pdf($nama){
         $tglakhir = date('Y-m-d');
         $tglawal =date('Y-m-d', strtotime('-1 month', strtotime($tglakhir)));
-        if($nama=='produksi'){
+        if($nama=='Produksi'){
         
             
             $sql=DB::table('calon_karyawan as c')
@@ -115,7 +115,7 @@ class ControllerPdf extends Controller
                 // }
                 $pdf = PDF::loadview('rangking_pdf',['sql'=>$sql,'tesw'=>$kedisiplinan,'tespraktik'=>$tespraktik,'a'=>$bagian,'kosong'=>$kosong]);
                 return $pdf->download('laporan-rangking-pdf');
-                return view('rangking_pdf',['sql'=>$sql,'tesw'=>$kedisiplinan,'tespraktik'=>$tespraktik,'a'=>$bagian,'kosong'=>$kosong]);
+                // return view('rangking_pdf',['sql'=>$sql,'tesw'=>$kedisiplinan,'tespraktik'=>$tespraktik,'a'=>$bagian,'kosong'=>$kosong]);
             }
             
         }else{
@@ -225,7 +225,9 @@ class ControllerPdf extends Controller
                     // echo $k[$i][0];
                     // echo "<br>";
                 }
-                return view('rangking',['sql'=>$sql,'tesw'=>$teswawancara,'test'=>$testulis,'psikotes'=>$psikotes,'a'=>$bagian,'kosong'=>$kosong]);
+                $pdf = PDF::loadview('rangking_pdf',['sql'=>$sql,'tesw'=>$teswawancara,'test'=>$testulis,'psikotes'=>$psikotes,'a'=>$bagian,'kosong'=>$kosong]);
+                return $pdf->download('laporan-rangking-pdf');
+                // return view('rangking',['sql'=>$sql,'tesw'=>$teswawancara,'test'=>$testulis,'psikotes'=>$psikotes,'a'=>$bagian,'kosong'=>$kosong]);
             }
             
         }
