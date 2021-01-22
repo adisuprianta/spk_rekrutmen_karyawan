@@ -80,4 +80,5 @@ Route::post('/home/NonProduksi/input/saw', 'ControllerSaw@inputsaw')->middleware
 // Route::get('tes', 'ControllerSaw@hitungsaw');
 
 Route::get('/home/rangking/{nama}', 'ControllerRangking@index')->middleware('auth');
+Route::get('/home/rangking/cari/{nama}', 'ControllerRangking@cari')->middleware('auth');
 Route::get('/home/pdf/{nama}', 'ControllerPdf@cetak_pdf')->middleware('auth');

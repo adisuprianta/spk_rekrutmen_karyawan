@@ -7,9 +7,11 @@ use Illuminate\Support\Facades\DB;
 use PDF;
 class ControllerPdf extends Controller
 {
-    public function cetak_pdf($nama){
-        $tglakhir = date('Y-m-d');
-        $tglawal =date('Y-m-d', strtotime('-1 month', strtotime($tglakhir)));
+    public function cetak_pdf(Request $request){
+        $tglakhir =$request->tgl_akhir;
+        $tglawal =$request->tgl_awal;
+        // $tgl=array($tglawal,$tglakhir);
+        $nama = $request->nama;
         if($nama=='Produksi'){
         
             

@@ -21,22 +21,38 @@
             <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                            <a href="/home/pdf/{{$a[0]}}" class="btn btn-info float-left active mb-3" role="button" aria-pressed="true"> 
+                                <!-- <a href="/home/pdf/{{$a[0]}}" class="btn btn-info float-left active mb-3" role="button" aria-pressed="true"> 
                                 
-                                Cetak Pdf</a>
-                                <form class="form justify-content-end row" method="get" action="">
-                                {{ csrf_field() }}
-                                <input type="hidden" value="" name="id_bagian">
-                                    <div class="form-group  mb-2 col-md-3">
-                                        <!-- <label for="inputPassword2" class="sr-only">Password</label> -->
-                                        <input placeholder="Tanggal Awal" type="text" class="form-control datepicker" name="tgl_awal">
+                                Cetak Pdf</a> -->
+                                <div class="row ">
+                                    <div class="col-md-2">
+                                        <form class="" method="get" action="/home/pdf/{{$a[0]}}">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" value="{{$a[0]}}" name="nama">
+                                            <input type="hidden"  name="tgl_akhir" value="{{$tgl[1]}}">
+                                            <input type="hidden"  name="tgl_awal" value="{{$tgl[0]}}">
+                                            <button type="submit" class="btn btn-info mb-2">Cetak Pdf</button>
+                                        </form>
                                     </div>
-                                    <div class="form-group  mb-2 col-md-3">
-                                        <!-- <label for="inputPassword2" class="sr-only">Password</label> -->
-                                        <input placeholder="Tanggal Akhir" type="text" class="form-control datepicker" name="tgl_akhir">
+                                    <div class="col-md-10">
+                                    <form class="form justify-content-end row" method="get" action="/home/rangking/cari/{{$a[0]}}">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" value="{{$a[0]}}" name="nama">
+                                        <div class="form-group  mb-2 col-md-3">
+                                            <!-- <label for="inputPassword2" class="sr-only">Password</label> -->
+                                            <input placeholder="Tanggal Awal" type="text" class="form-control datepicker" name="tgl_awal">
+                                        </div>
+                                        <div class="form-group  mb-2 col-md-3">
+                                            <!-- <label for="inputPassword2" class="sr-only">Password</label> -->
+                                            <input placeholder="Tanggal Akhir" type="text" class="form-control datepicker" name="tgl_akhir">
+                                        </div>
+                                        <button type="submit" class="btn btn-info mb-2">Search</button>
+                                    </form>
                                     </div>
-                                    <button type="submit" class="btn btn-info mb-2">Search</button>
-                                </form>
+                                </div>
+                                
+
+                                
                             
 
                                 <!-- <a href="#" class="btn btn-info float-right mb-3" data-toggle="modal" data-target="#createModal"> <i class="fa fa-plus"></i>
